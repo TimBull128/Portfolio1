@@ -1,0 +1,15 @@
+C:\Users\Tim\source\repos\CupofTea\CupofTea\bin\Debug\CupofTea.exe.config
+C:\Users\Tim\source\repos\CupofTea\CupofTea\bin\Debug\CupofTea.exe
+C:\Users\Tim\source\repos\CupofTea\CupofTea\bin\Debug\CupofTea.pdb
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.csprojAssemblyReference.cache
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\MainWindow.g.cs
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\App.g.cs
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea_MarkupCompile.cache
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea_MarkupCompile.lref
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\MainWindow.baml
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.g.resources
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.Properties.Resources.resources
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.csproj.GenerateResource.cache
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.csproj.CoreCompileInputs.cache
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.exe
+C:\Users\Tim\source\repos\CupofTea\CupofTea\obj\Debug\CupofTea.pdb
