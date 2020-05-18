@@ -1,0 +1,13 @@
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.csprojAssemblyReference.cache
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.csproj.CoreCompileInputs.cache
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.AssemblyInfoInputs.cache
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.AssemblyInfo.cs
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.exe
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.deps.json
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.runtimeconfig.json
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.runtimeconfig.dev.json
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.dll
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\bin\Debug\netcoreapp3.1\FunWithNumbers2.pdb
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.dll
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.pdb
+C:\Users\Tim\source\repos\FunWithNumbers2\FunWithNumbers2\obj\Debug\netcoreapp3.1\FunWithNumbers2.genruntimeconfig.cache
