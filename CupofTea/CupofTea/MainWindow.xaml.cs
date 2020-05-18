@@ -33,7 +33,7 @@ namespace CupofTea
         private Spoon VarSpoon;
         private MilkBottle VarBottle ;
         private Cup VarCup;
-        private Person VarPerson;
+        private Person VarPerson = new Person();
         private Story VarStory = new Story();
 
         //Constants for enumerations used in the code
@@ -57,7 +57,7 @@ namespace CupofTea
             //Initialize components
             InitializeComponent();
 
-            ReOrganiseObjects();
+            ReOrganiseObjects(false);
 
             //Initialize the instances of events.
             //Buttons
@@ -529,7 +529,7 @@ namespace CupofTea
         {
 
             
-            ReOrganiseObjects();
+            ReOrganiseObjects(true );
 
             
         }
@@ -540,7 +540,7 @@ namespace CupofTea
         /// Function used to prepopulate and reset the objects
         /// </summary>
 
-        public void ReOrganiseObjects()
+        public void ReOrganiseObjects(bool Reset)
         {
             
 
@@ -603,7 +603,7 @@ namespace CupofTea
                 NumIngredients = 0
             };
             CheckHands();
-            TxtOutput.Text = VarStory.ResetStory();
+            TxtOutput.Text = VarStory.ResetStory(Reset);
         }
         /// <summary>
         /// Checks what items are in hand, updates the text and ensures that the amount of items in the hands are correct

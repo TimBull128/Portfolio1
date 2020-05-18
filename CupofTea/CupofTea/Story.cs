@@ -23,7 +23,7 @@ namespace CupofTea
         public bool AddResetMessage { get; set; }
         public bool AddStirMessage { get; set; }
         public string StirMessage { get; set; }
-        public string ResetStory()
+        public string ResetStory(bool Reset)
         {
             StringBuilder BuildString = new StringBuilder();
             string Value;
@@ -36,7 +36,7 @@ namespace CupofTea
             this.EmptyMessage = "";
             this.AddEmptyMessage = false;
             this.AddSuccessMessage = false;
-            this.AddResetMessage = true;
+            this.AddResetMessage = Reset;
             this.AddStirMessage = false;
             this.StirMessage = "";
 
