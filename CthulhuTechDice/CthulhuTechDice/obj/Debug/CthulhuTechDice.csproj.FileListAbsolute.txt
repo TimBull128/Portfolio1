@@ -1,0 +1,15 @@
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\MainWindow.g.cs
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\App.g.cs
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice_MarkupCompile.cache
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice_MarkupCompile.lref
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\bin\Debug\CthulhuTechDice.exe.config
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\bin\Debug\CthulhuTechDice.exe
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\bin\Debug\CthulhuTechDice.pdb
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\MainWindow.baml
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.g.resources
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.Properties.Resources.resources
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.csproj.GenerateResource.cache
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.csproj.CoreCompileInputs.cache
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.exe
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.pdb
+C:\Users\TimBu\source\repos\CthulhuTechDice\CthulhuTechDice\obj\Debug\CthulhuTechDice.csprojAssemblyReference.cache

@@ -1,0 +1,47 @@
+﻿<Window x:Class="CthulhuTechDice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CthulhuTechDice"
+        mc:Ignorable="d"
+        Title="Cthulhutech Diceroller" Height="450" Width="800" Foreground="Black" Background="White" FontSize="14">
+    <Grid>
+        <Button x:Name="BtnRoll" Content="Roll All" HorizontalAlignment="Left" Margin="27,351,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="DiceTxt1" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="611,9,0,0"/>
+        <TextBox x:Name="DiceTxt2" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="612,41,0,0"/>
+        <TextBox x:Name="DiceTxt3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="613,74,0,0"/>
+        <TextBox x:Name="DiceTxt4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="613,105,0,0"/>
+        <TextBox x:Name="DiceTxt5" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="614,139,0,0"/>
+        <TextBox x:Name="DiceTxt6" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="616,171,0,0"/>
+        <TextBox x:Name="DiceTxt7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="616,200,0,0"/>
+        <TextBox x:Name="DiceTxt8" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="616,231,0,0"/>
+        <TextBox x:Name="NumDiceTxt" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="104,28,0,0" />
+        <TextBox x:Name="StatusTxt" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="746" Margin="21,386,0,0" />
+        <TextBlock x:Name="ScoreTxt" HorizontalAlignment="Left" Margin="667,298,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <Label Content="Dice to roll" HorizontalAlignment="Left" Margin="9,24,0,0" VerticalAlignment="Top" Width="115"/>
+
+        <TextBox x:Name="DiffCustomTxt" HorizontalAlignment="Left" Height="22" Margin="163,162,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="35"/>
+        <RadioButton x:Name="DiffEasyRad" Content="Easy" HorizontalAlignment="Left" Margin="26,130,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffAverageRad" Content="Average" HorizontalAlignment="Left" Margin="26,145,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffChallengingRad" Content="Challenging" HorizontalAlignment="Left" Margin="26,160,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffHardRad" Content="Hard" HorizontalAlignment="Left" Margin="26,175,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffIncHardRad" Content="Incredibly Hard" HorizontalAlignment="Left" Margin="26,190,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffLegendaryRad" Content="Legendary" HorizontalAlignment="Left" Margin="26,205,0,0" VerticalAlignment="Top" GroupName="Difficulty" />
+        <RadioButton x:Name="DiffCustomRad" Content="Custom" HorizontalAlignment="Left" Margin="26,220,0,0" VerticalAlignment="Top" GroupName="Difficulty"/>
+        <RadioButton x:Name="DiffNoneRad" Content="None" HorizontalAlignment="Left" Margin="26,235,0,0" VerticalAlignment="Top" GroupName="Difficulty"/>
+        <TextBlock x:Name="SuccessTxt" HorizontalAlignment="Left" Margin="625,319,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <CheckBox x:Name="UntrainedChk" Content="Untrained" HorizontalAlignment="Left" Margin="16,61,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="DifficultyLbl" Content="Difficulty" HorizontalAlignment="Left" Margin="27,90,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="ScoreLbl" Content="Score:" HorizontalAlignment="Left" Margin="619,292,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="ResetBtn" Content="Reset" HorizontalAlignment="Left" Margin="117,351,0,0" VerticalAlignment="Top" Width="75"/>
+        <Rectangle HorizontalAlignment="Left" Height="171" Margin="15,88,0,0" Stroke="Black" VerticalAlignment="Top" Width="198"/>
+        <Label Content="Modifiers" HorizontalAlignment="Left" Margin="265,88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Stat addition: " HorizontalAlignment="Left" Margin="269,122,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="StatAdditionTxt" HorizontalAlignment="Left" Height="23" Margin="401,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="CustomModifierTxt" HorizontalAlignment="Left" Height="23" Margin="401,159,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Custom Modifier:" HorizontalAlignment="Left" Margin="267,152,0,0" VerticalAlignment="Top"/>
+        <Rectangle HorizontalAlignment="Left" Height="171" Margin="266,212,0,0" Stroke="Black" VerticalAlignment="Top" Width="277"/>
+
+    </Grid>
+</Window>
