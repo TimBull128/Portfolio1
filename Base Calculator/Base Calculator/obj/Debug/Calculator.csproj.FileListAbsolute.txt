@@ -1,0 +1,5 @@
+C:\Users\TimBu\source\repos\Base Calculator\Base Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+C:\Users\TimBu\source\repos\Base Calculator\Base Calculator\obj\Debug\MainWindow.g.cs
+C:\Users\TimBu\source\repos\Base Calculator\Base Calculator\obj\Debug\App.g.cs
+C:\Users\TimBu\source\repos\Base Calculator\Base Calculator\obj\Debug\Base Calculator_MarkupCompile.cache
+C:\Users\TimBu\source\repos\Base Calculator\Base Calculator\obj\Debug\Base Calculator_MarkupCompile.lref
