@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.875" name="RaceSQLModel">
+  <DataContextMoniker Name="/RaceSQLModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="6bb78c96-a4ae-4c7d-931e-6303e080876e" absoluteBounds="7.5, 9.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Rules_Skills_Type" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c572ee26-31ea-4572-80a1-7f1bc7ad94d8" absoluteBounds="7.5150000000000006, 9.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c735bb46-1d00-46ad-9ff8-af02f9ee96b1" absoluteBounds="7.75, 3.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Races_Players_Skill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4537c811-ae41-445f-bed5-5a1f4f6725b1" absoluteBounds="7.7650000000000006, 3.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8669ef2f-9a86-43b6-81db-e2a6c943cce1" absoluteBounds="1.875, 6, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/User_Roster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="92bbee7b-31f8-4b32-9169-63ad986530d4" absoluteBounds="1.8899999999999997, 6.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d903481f-09ff-4971-a091-a4690616cab6" absoluteBounds="4.625, 1.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Rules_SpecialRule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9bb2573-82a5-4c57-8911-163e45039cb2" absoluteBounds="4.64, 1.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="316a604c-072e-497d-8819-631c256658eb" absoluteBounds="2, 1.125, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Race" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cef59bf1-b864-451a-9a93-3e586b8e404e" absoluteBounds="2.0150000000000006, 1.585, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.21875 : 3.28049967447917); (3.21875 : 6)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Race/Race_User_Roster" />
+      <nodes>
+        <classShapeMoniker Id="316a604c-072e-497d-8819-631c256658eb" />
+        <classShapeMoniker Id="8669ef2f-9a86-43b6-81db-e2a6c943cce1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 1.94314697265625); (4 : 1.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_SpecialRule/Rules_SpecialRule_Race" />
+      <nodes>
+        <classShapeMoniker Id="d903481f-09ff-4971-a091-a4690616cab6" />
+        <classShapeMoniker Id="316a604c-072e-497d-8819-631c256658eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 1.53407348632813); (4 : 1.53407348632813)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_SpecialRule/Rules_SpecialRule_Race1" />
+      <nodes>
+        <classShapeMoniker Id="d903481f-09ff-4971-a091-a4690616cab6" />
+        <classShapeMoniker Id="316a604c-072e-497d-8819-631c256658eb" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.625 : 2.35222045898437); (4 : 2.35222045898437)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_SpecialRule/Rules_SpecialRule_Race2" />
+      <nodes>
+        <classShapeMoniker Id="d903481f-09ff-4971-a091-a4690616cab6" />
+        <classShapeMoniker Id="316a604c-072e-497d-8819-631c256658eb" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9e743842-e77d-417b-a9d8-88a53511a8ac" absoluteBounds="4.5, 3, 2, 2.5401025390625">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Races_Player" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18fd68d2-173f-44bf-b559-01f6b554e583" absoluteBounds="4.515, 3.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4e9fd732-5469-4ab2-84ee-df3b379dce91" absoluteBounds="8.625, 7.125, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Rules_Skills_List" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2c347409-9c18-4469-899c-d9bb6ac644bf" absoluteBounds="8.64, 7.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.28125 : 7.125); (9.28125 : 4.5112939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_Skills_List/Rules_Skills_List_Races_Players_Skill" />
+      <nodes>
+        <classShapeMoniker Id="4e9fd732-5469-4ab2-84ee-df3b379dce91" />
+        <classShapeMoniker Id="c735bb46-1d00-46ad-9ff8-af02f9ee96b1" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.0625 : 9.25); (9.0625 : 8.89589680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_Skills_Type/Rules_Skills_Type_Rules_Skills_List" />
+      <nodes>
+        <classShapeMoniker Id="6bb78c96-a4ae-4c7d-931e-6303e080876e" />
+        <classShapeMoniker Id="4e9fd732-5469-4ab2-84ee-df3b379dce91" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7c4b311d-7f7b-4167-b7ae-8752fae62b81" absoluteBounds="6.75, 5.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/Rules_LvlType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="94a61b7e-d8ec-408a-9a83-91abc9e43e29" absoluteBounds="6.765, 5.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0f61eb1d-fe7b-44dd-8a53-ece356e6996a" absoluteBounds="5.125, 7, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/User_Rosters_LvlType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33cd32fd-d1c6-45c9-a9dc-33cf5706a3a0" absoluteBounds="5.14, 7.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.9375 : 6.5112939453125); (6.9375 : 7)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_LvlType/Rules_LvlType_User_Rosters_LvlType" />
+      <nodes>
+        <classShapeMoniker Id="7c4b311d-7f7b-4167-b7ae-8752fae62b81" />
+        <classShapeMoniker Id="0f61eb1d-fe7b-44dd-8a53-ece356e6996a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3eb11873-6c09-4865-9061-0badc9fd936a" absoluteBounds="4.25, 9, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/User_Rosters_Positional" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19ed8f7b-8152-4714-9bca-ecb520a6ee9e" absoluteBounds="4.265, 9.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.6875 : 9); (5.6875 : 8.3862939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/User_Rosters_Positional/User_Rosters_Positional_User_Rosters_LvlType" />
+      <nodes>
+        <classShapeMoniker Id="3eb11873-6c09-4865-9061-0badc9fd936a" />
+        <classShapeMoniker Id="0f61eb1d-fe7b-44dd-8a53-ece356e6996a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.78125 : 5.5401025390625); (4.78125 : 9)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Races_Player/Races_Player_User_Rosters_Positional" />
+      <nodes>
+        <classShapeMoniker Id="9e743842-e77d-417b-a9d8-88a53511a8ac" />
+        <classShapeMoniker Id="3eb11873-6c09-4865-9061-0badc9fd936a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.875 : 8.73240397135417); (4.25 : 9)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/User_Roster/User_Roster_User_Rosters_Positional" />
+      <nodes>
+        <classShapeMoniker Id="8669ef2f-9a86-43b6-81db-e2a6c943cce1" />
+        <classShapeMoniker Id="3eb11873-6c09-4865-9061-0badc9fd936a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="afeb630c-eaa9-4395-b386-69c4eee3f523" absoluteBounds="3.875, 11.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/RaceSQLModelDataContext/User_Rosters_Skill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b40d4e58-5c84-43d9-a7eb-08b7f4e8ab2a" absoluteBounds="3.89, 11.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.0625 : 10.7708968098958); (5.0625 : 11.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/User_Rosters_Positional/User_Rosters_Positional_User_Rosters_Skill" />
+      <nodes>
+        <classShapeMoniker Id="3eb11873-6c09-4865-9061-0badc9fd936a" />
+        <classShapeMoniker Id="afeb630c-eaa9-4395-b386-69c4eee3f523" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(10.09375 : 8.89589680989583); (10.09375 : 11.9431469726562); (5.875 : 11.9431469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/RaceSQLModelDataContext/Rules_Skills_List/Rules_Skills_List_User_Rosters_Skill" />
+      <nodes>
+        <classShapeMoniker Id="4e9fd732-5469-4ab2-84ee-df3b379dce91" />
+        <classShapeMoniker Id="afeb630c-eaa9-4395-b386-69c4eee3f523" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

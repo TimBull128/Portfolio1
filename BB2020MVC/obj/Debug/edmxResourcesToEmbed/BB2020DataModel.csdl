@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BB2020Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Race">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="SPID" Type="Int32" Nullable="false" />
+    <Property Name="Apothecary" Type="Boolean" Nullable="false" />
+    <Property Name="RerollCost" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Races_Players" Relationship="Self.FKRaceID" FromRole="Races" ToRole="Races_Players" />
+  </EntityType>
+  <EntityType Name="Races_Players">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="RaceID" Type="Int32" Nullable="false" />
+    <Property Name="MA" Type="Int32" Nullable="false" />
+    <Property Name="AG" Type="Int32" Nullable="false" />
+    <Property Name="AV" Type="Int32" Nullable="false" />
+    <Property Name="PA" Type="Int32" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Race" Relationship="Self.FKRaceID" FromRole="Races_Players" ToRole="Races" />
+    <NavigationProperty Name="Races_Players_Skills" Relationship="Self.FK_PlayerID" FromRole="Races_Players" ToRole="Races_Players_Skills" />
+  </EntityType>
+  <EntityType Name="Races_Players_Skills">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PlayerID" Type="Int32" />
+    <Property Name="SkillTypeID" Type="Int32" />
+    <Property Name="SkillID" Type="Int32" />
+    <NavigationProperty Name="Races_Players" Relationship="Self.FK_PlayerID" FromRole="Races_Players_Skills" ToRole="Races_Players" />
+    <NavigationProperty Name="Rules_Skills_Type" Relationship="Self.FK_SkillTypeID" FromRole="Races_Players_Skills" ToRole="Rules_Skills_Type" />
+  </EntityType>
+  <EntityType Name="Races_SpecialRulesSelection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="SRID1" Type="Int32" />
+    <Property Name="SRID2" Type="Int32" />
+    <Property Name="SRID3" Type="Int32" />
+    <Property Name="Chosen_Renegade" Type="Boolean" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Races_SpecialRulesSelection1" Relationship="Self.FK_Races_SpecialRulesSelection_Races_SpecialRulesSelection" FromRole="Races_SpecialRulesSelection" ToRole="Races_SpecialRulesSelection1" />
+    <NavigationProperty Name="Races_SpecialRulesSelection2" Relationship="Self.FK_Races_SpecialRulesSelection_Races_SpecialRulesSelection" FromRole="Races_SpecialRulesSelection1" ToRole="Races_SpecialRulesSelection" />
+    <NavigationProperty Name="Rules_SpecialRules" Relationship="Self.FK_SRID1" FromRole="Races_SpecialRulesSelection" ToRole="Rules_SpecialRules" />
+    <NavigationProperty Name="Rules_SpecialRules1" Relationship="Self.FK_SRID2" FromRole="Races_SpecialRulesSelection" ToRole="Rules_SpecialRules" />
+    <NavigationProperty Name="Rules_SpecialRules2" Relationship="Self.FK_SRID3" FromRole="Races_SpecialRulesSelection" ToRole="Rules_SpecialRules" />
+  </EntityType>
+  <EntityType Name="Rules_Inducements">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rules_Skills_List">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NotOptional" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rules_Skills_Type">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Races_Players_Skills" Relationship="Self.FK_SkillTypeID" FromRole="Rules_Skills_Type" ToRole="Races_Players_Skills" />
+  </EntityType>
+  <EntityType Name="Rules_SpecialRules">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Races_SpecialRulesSelection" Relationship="Self.FK_SRID1" FromRole="Rules_SpecialRules" ToRole="Races_SpecialRulesSelection" />
+    <NavigationProperty Name="Races_SpecialRulesSelection1" Relationship="Self.FK_SRID2" FromRole="Rules_SpecialRules" ToRole="Races_SpecialRulesSelection" />
+    <NavigationProperty Name="Races_SpecialRulesSelection2" Relationship="Self.FK_SRID3" FromRole="Rules_SpecialRules" ToRole="Races_SpecialRulesSelection" />
+  </EntityType>
+  <EntityType Name="Users_Rosters_List">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="PositionID" Type="Int32" />
+    <Property Name="SPP" Type="Int32" Nullable="false" />
+    <Property Name="LvlTypeID1" Type="Int32" />
+    <Property Name="LvlTypeID2" Type="Int32" />
+    <Property Name="LvlTypeID3" Type="Int32" />
+    <Property Name="LvlTypeID4" Type="Int32" />
+    <Property Name="LvlTypeID5" Type="Int32" />
+    <Property Name="LvlTypeID6" Type="Int32" />
+    <Property Name="SID1" Type="Int32" />
+    <Property Name="SID2" Type="Int32" />
+    <Property Name="SID3" Type="Int32" />
+    <Property Name="SID4" Type="Int32" />
+    <Property Name="SID5" Type="Int32" />
+    <Property Name="SID6" Type="Int32" />
+    <Property Name="STID1" Type="Int32" />
+    <Property Name="STID2" Type="Int32" />
+    <Property Name="STID3" Type="Int32" />
+    <Property Name="STID4" Type="Int32" />
+    <Property Name="STID5" Type="Int32" />
+    <Property Name="STID6" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Rules_LvlType">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Description" />
+      <PropertyRef Name="Cost" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Rosters">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="RaceID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="RerollsQTY" />
+      <PropertyRef Name="Apoths" />
+      <PropertyRef Name="CheerLeadersQTY" />
+      <PropertyRef Name="CoachesQTY" />
+      <PropertyRef Name="TV" />
+      <PropertyRef Name="Treasury" />
+      <PropertyRef Name="InTourney" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="RaceID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RerollsQTY" Type="Int32" Nullable="false" />
+    <Property Name="Apoths" Type="Boolean" Nullable="false" />
+    <Property Name="CheerLeadersQTY" Type="Int32" Nullable="false" />
+    <Property Name="CoachesQTY" Type="Int32" Nullable="false" />
+    <Property Name="TV" Type="Int32" Nullable="false" />
+    <Property Name="Treasury" Type="Int32" Nullable="false" />
+    <Property Name="InTourney" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <Association Name="FKRaceID">
+    <End Role="Races" Type="Self.Race" Multiplicity="1" />
+    <End Role="Races_Players" Type="Self.Races_Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Races">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_Players">
+        <PropertyRef Name="RaceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerID">
+    <End Role="Races_Players" Type="Self.Races_Players" Multiplicity="0..1" />
+    <End Role="Races_Players_Skills" Type="Self.Races_Players_Skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Races_Players">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_Players_Skills">
+        <PropertyRef Name="PlayerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SkillTypeID">
+    <End Role="Rules_Skills_Type" Type="Self.Rules_Skills_Type" Multiplicity="0..1" />
+    <End Role="Races_Players_Skills" Type="Self.Races_Players_Skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rules_Skills_Type">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_Players_Skills">
+        <PropertyRef Name="SkillTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Races_SpecialRulesSelection_Races_SpecialRulesSelection">
+    <End Role="Races_SpecialRulesSelection" Type="Self.Races_SpecialRulesSelection" Multiplicity="1" />
+    <End Role="Races_SpecialRulesSelection1" Type="Self.Races_SpecialRulesSelection" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Races_SpecialRulesSelection">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_SpecialRulesSelection1">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SRID1">
+    <End Role="Rules_SpecialRules" Type="Self.Rules_SpecialRules" Multiplicity="1" />
+    <End Role="Races_SpecialRulesSelection" Type="Self.Races_SpecialRulesSelection" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rules_SpecialRules">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_SpecialRulesSelection">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SRID2">
+    <End Role="Rules_SpecialRules" Type="Self.Rules_SpecialRules" Multiplicity="1" />
+    <End Role="Races_SpecialRulesSelection" Type="Self.Races_SpecialRulesSelection" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Rules_SpecialRules">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_SpecialRulesSelection">
+        <PropertyRef Name="ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SRID3">
+    <End Role="Rules_SpecialRules" Type="Self.Rules_SpecialRules" Multiplicity="0..1" />
+    <End Role="Races_SpecialRulesSelection" Type="Self.Races_SpecialRulesSelection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rules_SpecialRules">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Races_SpecialRulesSelection">
+        <PropertyRef Name="SRID3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BB2020Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Races" EntityType="Self.Race" />
+    <EntitySet Name="Races_Players" EntityType="Self.Races_Players" />
+    <EntitySet Name="Races_Players_Skills" EntityType="Self.Races_Players_Skills" />
+    <EntitySet Name="Races_SpecialRulesSelection" EntityType="Self.Races_SpecialRulesSelection" />
+    <EntitySet Name="Rules_Inducements" EntityType="Self.Rules_Inducements" />
+    <EntitySet Name="Rules_Skills_List" EntityType="Self.Rules_Skills_List" />
+    <EntitySet Name="Rules_Skills_Type" EntityType="Self.Rules_Skills_Type" />
+    <EntitySet Name="Rules_SpecialRules" EntityType="Self.Rules_SpecialRules" />
+    <EntitySet Name="Users_Rosters_List" EntityType="Self.Users_Rosters_List" />
+    <EntitySet Name="Rules_LvlType" EntityType="Self.Rules_LvlType" />
+    <EntitySet Name="User_Rosters" EntityType="Self.User_Rosters" />
+    <AssociationSet Name="FKRaceID" Association="Self.FKRaceID">
+      <End Role="Races" EntitySet="Races" />
+      <End Role="Races_Players" EntitySet="Races_Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerID" Association="Self.FK_PlayerID">
+      <End Role="Races_Players" EntitySet="Races_Players" />
+      <End Role="Races_Players_Skills" EntitySet="Races_Players_Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SkillTypeID" Association="Self.FK_SkillTypeID">
+      <End Role="Rules_Skills_Type" EntitySet="Rules_Skills_Type" />
+      <End Role="Races_Players_Skills" EntitySet="Races_Players_Skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Races_SpecialRulesSelection_Races_SpecialRulesSelection" Association="Self.FK_Races_SpecialRulesSelection_Races_SpecialRulesSelection">
+      <End Role="Races_SpecialRulesSelection" EntitySet="Races_SpecialRulesSelection" />
+      <End Role="Races_SpecialRulesSelection1" EntitySet="Races_SpecialRulesSelection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SRID1" Association="Self.FK_SRID1">
+      <End Role="Rules_SpecialRules" EntitySet="Rules_SpecialRules" />
+      <End Role="Races_SpecialRulesSelection" EntitySet="Races_SpecialRulesSelection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SRID2" Association="Self.FK_SRID2">
+      <End Role="Rules_SpecialRules" EntitySet="Rules_SpecialRules" />
+      <End Role="Races_SpecialRulesSelection" EntitySet="Races_SpecialRulesSelection" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SRID3" Association="Self.FK_SRID3">
+      <End Role="Rules_SpecialRules" EntitySet="Rules_SpecialRules" />
+      <End Role="Races_SpecialRulesSelection" EntitySet="Races_SpecialRulesSelection" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

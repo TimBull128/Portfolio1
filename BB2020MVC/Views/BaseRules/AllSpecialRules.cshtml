@@ -1,0 +1,30 @@
+﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_List>
+
+@{
+    ViewBag.Title = "All Special Rules";
+}
+
+<h2>All Special Rules</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddSpecialRule")
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Name </td>
+        <td>@item.Description</td>
+        <td>
+
+            @Html.ActionLink("Edit", "EditSpecialRule", new { Id = item.ID }) |
+            @Html.ActionLink("Delete", "DeleteSpecialRule", new { Id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

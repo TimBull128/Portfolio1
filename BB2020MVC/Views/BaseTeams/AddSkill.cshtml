@@ -1,0 +1,46 @@
+﻿@model BB2020MVC.Models.Races_Players_Skill
+
+@{ 
+    ViewBag.Title = "Add Skill to " + ViewBag.Player.RaceName + " " + ViewBag.Player.Name;
+}
+
+<h2>Add Skill to @ViewBag.Player.RaceName @ViewBag.Player.Name</h2>
+<hr />
+<br />
+<h3>Current Skills:</h3>
+<ul>
+    @foreach(var PS in ViewBag.Player.PlayerSkills)
+    {
+        foreach(var SQ in ViewBag.SkillNames)
+        {
+            if(SQ.ID == PS.SkillID)
+            {
+                @SQ.Name;
+            }
+        }
+    }
+</ul>
+<br/>
+<hr />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @Html.HiddenFor(model => model.ID)
+    @Html.HiddenFor(model => model.PlayerID, new { PlayerID = ViewBag.Player.ID })
+
+    @Html.Label("Skill to Add")
+    @Html.DropDownListFor(Model => Model.SkillID, new SelectList(ViewBag.Skills, dataTextField: "Text", dataValueField: "Value"))
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to Race", actionName: "ViewRace", routeValues: new { ID = ViewBag.Player.RaceID })
+</div>

@@ -1,0 +1,70 @@
+﻿@model BB2020MVC.Models.Races_Player
+
+@{
+
+    ViewBag.Title = "Add Player to " + ViewBag.RaceName;
+}
+
+<h2>Add Player to @ViewBag.RaceName</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ID, Model.ID)
+    @Html.HiddenFor(model => model.RaceID, Model.RaceID)
+    <table class=" table table-bordered table-responsive">
+        <tr>
+            <th>@Html.Label("Player Type")</th>
+            <th>@Html.Label("MA")</th>
+            <th>@Html.Label("STR")</th>
+            <th>@Html.Label("AG")</th>
+            <th>@Html.Label("PA")</th>
+            <th>@Html.Label("AV")</th>
+            <th>@Html.Label("Cost")</th>
+        </tr>
+        <tr>
+            <td>
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })<br />
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </td>
+            <td>
+
+                @Html.DropDownListFor(model => model.MA, new SelectList(ViewBag.MASelect, dataTextField: "Text", dataValueField: "Value"))
+                @Html.ValidationMessageFor(model => model.MA, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.STRENGTH, new SelectList(ViewBag.STSelect, dataTextField: "Text", dataValueField: "Value"))
+                @Html.ValidationMessageFor(model => model.STRENGTH, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.AG, new SelectList(ViewBag.AGSelect, dataTextField: "Text", dataValueField: "Value"))
+
+                @Html.ValidationMessageFor(model => model.AG, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.PA, new SelectList(ViewBag.PASelect, dataTextField:"Text", dataValueField: "Value"))
+                @Html.ValidationMessageFor(model => model.PA, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.AV, new SelectList(ViewBag.AVSelect, dataTextField: "Text", dataValueField: "Value"))
+                @Html.ValidationMessageFor(model => model.AV, "", new { @class = "text-danger" })
+            </td>
+            <td>
+                @Html.EditorFor(model => model.Cost, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Cost, "", new { @class = "text-danger" })
+            </td>
+            
+        </tr >
+    </table>
+    <div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Race", "ViewRace", new { ID = Model.RaceID })
+</div>

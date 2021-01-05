@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_List>
+@{ViewBag.Title = "All Skills";}
+
+    <div><h2>All Races</h2></div>
+
+
+    <br />
+    <div id="Races">
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>Optional?</th>
+                <th>Functions</th>
+            </tr>
+            @foreach (var Skill in Model)
+            {
+                <tr>
+
+                    <td>@Skill.Name</td>
+                    <td>@Skill.Description</td>
+                    <td>
+                        @foreach(var SkillType in ViewBag.SkillTypes)
+                        {
+                            if(Skill.SkillTypeID == SkillType.ID)
+                            {
+                                @SkillType.Name
+                            }
+                        }
+
+                    </td>
+                    <td>
+                        @if (Skill.NotOptional)
+                        {
+                            @("Not Optional")
+                        }
+                        else
+                        {
+                            @("Optional")
+                        }
+                    </td>
+                    
+                    <td>@Html.ActionLink("Edit Skill", "EditSkill", new { id = Skill.ID })</td>
+                    
+                    <td>@Html.ActionLink("Delete Skill", "DeleteSkill", new { id = Skill.ID })</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <br /><br />
+    <div id="AdditionalFunctions">
+        <h2>Additonal Functions</h2>
+        @Html.ActionLink("Add New Skill", "AddSkill")<br />
+        @Html.ActionLink("Back To Landing", actionName: "Index", controllerName: "Main");
+        
+    </div>

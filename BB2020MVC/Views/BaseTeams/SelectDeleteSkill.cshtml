@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BB2020MVC.Models.Races_Players_Skill>
+
+@{
+    ViewBag.Title = "Select Delete Skill";
+}
+
+<h2>Select Skill to delete</h2>
+
+<table class="table table-bordered table-active table-responsive">
+    <tr>
+        <th>Name</th>
+        
+    </tr>
+    <tr>
+        Selection
+    </tr>
+    @foreach(var PlayerSkill in Model)
+    {
+        <tr>
+            <td>
+                @foreach(var Skill in ViewBag.SkillRules){
+                    if(PlayerSkill.SkillID == Skill.ID){
+                        @Skill.Name
+                    }
+                 }
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteSkill", new { ID = PlayerSkill.SkillID })
+            </td>
+        </tr>
+        
+    }
+</table>

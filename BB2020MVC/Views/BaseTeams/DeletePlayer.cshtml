@@ -1,0 +1,26 @@
+﻿@model BB2020MVC.Models.BaseTeamStruct
+
+@{
+    ViewBag.Title = "Delete " + Model.RaceName + " " + Model.Name;
+}
+
+
+
+<h3>Are you sure you want to delete this player?</h3>
+<div>
+    <h4>@Model.RaceName @Model.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+    Note: this will affect all Rosters of this Race!
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        @Html.Hidden("Id", new { ID = Model.ID })
+        
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+</div>
+    }
+</div>

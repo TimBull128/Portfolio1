@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Rules Splash";
+}
+
+<h2>Rules Landing</h2>
+
+Warning! You are about to view the details about rules, if you make any changes all teams including the base teams will be affected.
+
+<br/><br/>
+<table class=" table, table-borderless">
+    <tr>
+        <th>Rules Data</th>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Skills", actionName: "AllSkills", controllerName: "BaseRules")</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Special rules", actionName: "AllSpecialRules", controllerName: "BaseRules")</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("SkillsTypes", actionName: "AllSkillTypes")</td>
+    </tr>
+        
+        
+    
+    
+</table>
+@Html.ActionLink("Back to Main", actionName: "Default", controllerName: "Main")

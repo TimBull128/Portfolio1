@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BB2020ModelStoreContainer" CdmEntityContainer="BB2020Entities">
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="BB2020Model.Race">
+        <MappingFragment StoreEntitySet="Races">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="SPID" ColumnName="SPID" />
+          <ScalarProperty Name="Apothecary" ColumnName="Apothecary" />
+          <ScalarProperty Name="RerollCost" ColumnName="RerollCost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_Players">
+      <EntityTypeMapping TypeName="BB2020Model.Races_Players">
+        <MappingFragment StoreEntitySet="Races_Players">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="MA" ColumnName="MA" />
+          <ScalarProperty Name="AG" ColumnName="AG" />
+          <ScalarProperty Name="AV" ColumnName="AV" />
+          <ScalarProperty Name="PA" ColumnName="PA" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_Players_Skills">
+      <EntityTypeMapping TypeName="BB2020Model.Races_Players_Skills">
+        <MappingFragment StoreEntitySet="Races_Players_Skills">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="SkillTypeID" ColumnName="SkillTypeID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_SpecialRulesSelection">
+      <EntityTypeMapping TypeName="BB2020Model.Races_SpecialRulesSelection">
+        <MappingFragment StoreEntitySet="Races_SpecialRulesSelection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SRID1" ColumnName="SRID1" />
+          <ScalarProperty Name="SRID2" ColumnName="SRID2" />
+          <ScalarProperty Name="SRID3" ColumnName="SRID3" />
+          <ScalarProperty Name="Chosen_Renegade" ColumnName="Chosen_Renegade" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Inducements">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Inducements">
+        <MappingFragment StoreEntitySet="Rules_Inducements">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Skills_List">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Skills_List">
+        <MappingFragment StoreEntitySet="Rules_Skills_List">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NotOptional" ColumnName="NotOptional" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Skills_Type">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Skills_Type">
+        <MappingFragment StoreEntitySet="Rules_Skills_Type">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_SpecialRules">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_SpecialRules">
+        <MappingFragment StoreEntitySet="Rules_SpecialRules">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users_Rosters_List">
+      <EntityTypeMapping TypeName="BB2020Model.Users_Rosters_List">
+        <MappingFragment StoreEntitySet="Users_Rosters_List">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+          <ScalarProperty Name="SPP" ColumnName="SPP" />
+          <ScalarProperty Name="LvlTypeID1" ColumnName="LvlTypeID1" />
+          <ScalarProperty Name="LvlTypeID2" ColumnName="LvlTypeID2" />
+          <ScalarProperty Name="LvlTypeID3" ColumnName="LvlTypeID3" />
+          <ScalarProperty Name="LvlTypeID4" ColumnName="LvlTypeID4" />
+          <ScalarProperty Name="LvlTypeID5" ColumnName="LvlTypeID5" />
+          <ScalarProperty Name="LvlTypeID6" ColumnName="LvlTypeID6" />
+          <ScalarProperty Name="SID1" ColumnName="SID1" />
+          <ScalarProperty Name="SID2" ColumnName="SID2" />
+          <ScalarProperty Name="SID3" ColumnName="SID3" />
+          <ScalarProperty Name="SID4" ColumnName="SID4" />
+          <ScalarProperty Name="SID5" ColumnName="SID5" />
+          <ScalarProperty Name="SID6" ColumnName="SID6" />
+          <ScalarProperty Name="STID1" ColumnName="STID1" />
+          <ScalarProperty Name="STID2" ColumnName="STID2" />
+          <ScalarProperty Name="STID3" ColumnName="STID3" />
+          <ScalarProperty Name="STID4" ColumnName="STID4" />
+          <ScalarProperty Name="STID5" ColumnName="STID5" />
+          <ScalarProperty Name="STID6" ColumnName="STID6" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_LvlType">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_LvlType">
+        <MappingFragment StoreEntitySet="Rules_LvlType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters">
+        <MappingFragment StoreEntitySet="User_Rosters">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RerollsQTY" ColumnName="RerollsQTY" />
+          <ScalarProperty Name="Apoths" ColumnName="Apoths" />
+          <ScalarProperty Name="CheerLeadersQTY" ColumnName="CheerLeadersQTY" />
+          <ScalarProperty Name="CoachesQTY" ColumnName="CoachesQTY" />
+          <ScalarProperty Name="TV" ColumnName="TV" />
+          <ScalarProperty Name="Treasury" ColumnName="Treasury" />
+          <ScalarProperty Name="InTourney" ColumnName="InTourney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
