@@ -20,51 +20,53 @@ namespace BB2020MVC.Models
 	using System.Linq.Expressions;
 	using System.ComponentModel;
 	using System;
-	using System.ComponentModel.DataAnnotations;
-
-
+	
+	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="BB2020")]
 	public partial class RaceSQLModelDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
 		
-	#region Extensibility Method Definitions
-	partial void OnCreated();
-	partial void InsertRules_Skills_Type(Rules_Skills_Type instance);
-	partial void UpdateRules_Skills_Type(Rules_Skills_Type instance);
-	partial void DeleteRules_Skills_Type(Rules_Skills_Type instance);
-	partial void InsertRaces_Players_Skill(Races_Players_Skill instance);
-	partial void UpdateRaces_Players_Skill(Races_Players_Skill instance);
-	partial void DeleteRaces_Players_Skill(Races_Players_Skill instance);
-	partial void InsertUser_Roster(User_Roster instance);
-	partial void UpdateUser_Roster(User_Roster instance);
-	partial void DeleteUser_Roster(User_Roster instance);
-	partial void InsertRules_SpecialRule(Rules_SpecialRule instance);
-	partial void UpdateRules_SpecialRule(Rules_SpecialRule instance);
-	partial void DeleteRules_SpecialRule(Rules_SpecialRule instance);
-	partial void InsertRace(Race instance);
-	partial void UpdateRace(Race instance);
-	partial void DeleteRace(Race instance);
-	partial void InsertRaces_Player(Races_Player instance);
-	partial void UpdateRaces_Player(Races_Player instance);
-	partial void DeleteRaces_Player(Races_Player instance);
-	partial void InsertRules_Skills_List(Rules_Skills_List instance);
-	partial void UpdateRules_Skills_List(Rules_Skills_List instance);
-	partial void DeleteRules_Skills_List(Rules_Skills_List instance);
-	partial void InsertRules_LvlType(Rules_LvlType instance);
-	partial void UpdateRules_LvlType(Rules_LvlType instance);
-	partial void DeleteRules_LvlType(Rules_LvlType instance);
-	partial void InsertUser_Rosters_LvlType(User_Rosters_LvlType instance);
-	partial void UpdateUser_Rosters_LvlType(User_Rosters_LvlType instance);
-	partial void DeleteUser_Rosters_LvlType(User_Rosters_LvlType instance);
-	partial void InsertUser_Rosters_Positional(User_Rosters_Positional instance);
-	partial void UpdateUser_Rosters_Positional(User_Rosters_Positional instance);
-	partial void DeleteUser_Rosters_Positional(User_Rosters_Positional instance);
-	partial void InsertUser_Rosters_Skill(User_Rosters_Skill instance);
-	partial void UpdateUser_Rosters_Skill(User_Rosters_Skill instance);
-	partial void DeleteUser_Rosters_Skill(User_Rosters_Skill instance);
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnCreated();
+    partial void InsertRules_Skills_Type(Rules_Skills_Type instance);
+    partial void UpdateRules_Skills_Type(Rules_Skills_Type instance);
+    partial void DeleteRules_Skills_Type(Rules_Skills_Type instance);
+    partial void InsertRaces_Players_Skill(Races_Players_Skill instance);
+    partial void UpdateRaces_Players_Skill(Races_Players_Skill instance);
+    partial void DeleteRaces_Players_Skill(Races_Players_Skill instance);
+    partial void InsertUser_Roster(User_Roster instance);
+    partial void UpdateUser_Roster(User_Roster instance);
+    partial void DeleteUser_Roster(User_Roster instance);
+    partial void InsertRules_SpecialRule(Rules_SpecialRule instance);
+    partial void UpdateRules_SpecialRule(Rules_SpecialRule instance);
+    partial void DeleteRules_SpecialRule(Rules_SpecialRule instance);
+    partial void InsertRace(Race instance);
+    partial void UpdateRace(Race instance);
+    partial void DeleteRace(Race instance);
+    partial void InsertRaces_Player(Races_Player instance);
+    partial void UpdateRaces_Player(Races_Player instance);
+    partial void DeleteRaces_Player(Races_Player instance);
+    partial void InsertRules_Skills_List(Rules_Skills_List instance);
+    partial void UpdateRules_Skills_List(Rules_Skills_List instance);
+    partial void DeleteRules_Skills_List(Rules_Skills_List instance);
+    partial void InsertRules_LvlType(Rules_LvlType instance);
+    partial void UpdateRules_LvlType(Rules_LvlType instance);
+    partial void DeleteRules_LvlType(Rules_LvlType instance);
+    partial void InsertUser_Rosters_LvlType(User_Rosters_LvlType instance);
+    partial void UpdateUser_Rosters_LvlType(User_Rosters_LvlType instance);
+    partial void DeleteUser_Rosters_LvlType(User_Rosters_LvlType instance);
+    partial void InsertUser_Rosters_Positional(User_Rosters_Positional instance);
+    partial void UpdateUser_Rosters_Positional(User_Rosters_Positional instance);
+    partial void DeleteUser_Rosters_Positional(User_Rosters_Positional instance);
+    partial void InsertUser_Rosters_Skill(User_Rosters_Skill instance);
+    partial void UpdateUser_Rosters_Skill(User_Rosters_Skill instance);
+    partial void DeleteUser_Rosters_Skill(User_Rosters_Skill instance);
+    partial void InsertRaces_Players_SkillType(Races_Players_SkillType instance);
+    partial void UpdateRaces_Players_SkillType(Races_Players_SkillType instance);
+    partial void DeleteRaces_Players_SkillType(Races_Players_SkillType instance);
+    #endregion
 		
 		public RaceSQLModelDataContext() : 
 				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["BB2020ConnectionString"].ConnectionString, mappingSource)
@@ -183,6 +185,14 @@ namespace BB2020MVC.Models
 				return this.GetTable<User_Rosters_Skill>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Races_Players_SkillType> Races_Players_SkillTypes
+		{
+			get
+			{
+				return this.GetTable<Races_Players_SkillType>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Rules.Skills.Type]")]
@@ -197,19 +207,22 @@ namespace BB2020MVC.Models
 		
 		private EntitySet<Rules_Skills_List> _Rules_Skills_Lists;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	#endregion
+		private EntitySet<Races_Players_SkillType> _Races_Players_SkillTypes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
 		
 		public Rules_Skills_Type()
 		{
 			this._Rules_Skills_Lists = new EntitySet<Rules_Skills_List>(new Action<Rules_Skills_List>(this.attach_Rules_Skills_Lists), new Action<Rules_Skills_List>(this.detach_Rules_Skills_Lists));
+			this._Races_Players_SkillTypes = new EntitySet<Races_Players_SkillType>(new Action<Races_Players_SkillType>(this.attach_Races_Players_SkillTypes), new Action<Races_Players_SkillType>(this.detach_Races_Players_SkillTypes));
 			OnCreated();
 		}
 		
@@ -234,7 +247,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(10) NOT NULL", CanBeNull=false)]
-		[Required]
 		public string Name
 		{
 			get
@@ -264,6 +276,19 @@ namespace BB2020MVC.Models
 			set
 			{
 				this._Rules_Skills_Lists.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rules_Skills_Type_Races_Players_SkillType", Storage="_Races_Players_SkillTypes", ThisKey="ID", OtherKey="TypeID")]
+		public EntitySet<Races_Players_SkillType> Races_Players_SkillTypes
+		{
+			get
+			{
+				return this._Races_Players_SkillTypes;
+			}
+			set
+			{
+				this._Races_Players_SkillTypes.Assign(value);
 			}
 		}
 		
@@ -298,6 +323,18 @@ namespace BB2020MVC.Models
 			this.SendPropertyChanging();
 			entity.Rules_Skills_Type = null;
 		}
+		
+		private void attach_Races_Players_SkillTypes(Races_Players_SkillType entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rules_Skills_Type = this;
+		}
+		
+		private void detach_Races_Players_SkillTypes(Races_Players_SkillType entity)
+		{
+			this.SendPropertyChanging();
+			entity.Rules_Skills_Type = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Races.Players.Skills]")]
@@ -309,22 +346,22 @@ namespace BB2020MVC.Models
 		private int _ID;
 		
 		private System.Nullable<int> _PlayerID;
-
+		
 		private System.Nullable<int> _SkillID;
 		
 		private EntityRef<Rules_Skills_List> _Rules_Skills_List;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnPlayerIDChanging(System.Nullable<int> value);
-	partial void OnPlayerIDChanged();
-	partial void OnSkillIDChanging(System.Nullable<int> value);
-	partial void OnSkillIDChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPlayerIDChanging(System.Nullable<int> value);
+    partial void OnPlayerIDChanged();
+    partial void OnSkillIDChanging(System.Nullable<int> value);
+    partial void OnSkillIDChanged();
+    #endregion
 		
 		public Races_Players_Skill()
 		{
@@ -377,7 +414,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SkillID", DbType="Int")]
-		[Required]
 		public System.Nullable<int> SkillID
 		{
 			get
@@ -461,15 +497,15 @@ namespace BB2020MVC.Models
 		private int _ID;
 		
 		private int _RaceID;
-
+		
 		private string _Name;
-
+		
 		private int _RerollsQTY;
 		
 		private bool _Apoths;
-
+		
 		private int _CheerLeadersQTY;
-	
+		
 		private int _CoachesQTY;
 		
 		private int _TV;
@@ -482,31 +518,31 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<Race> _Race;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnRaceIDChanging(int value);
-	partial void OnRaceIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	partial void OnRerollsQTYChanging(int value);
-	partial void OnRerollsQTYChanged();
-	partial void OnApothsChanging(bool value);
-	partial void OnApothsChanged();
-	partial void OnCheerLeadersQTYChanging(int value);
-	partial void OnCheerLeadersQTYChanged();
-	partial void OnCoachesQTYChanging(int value);
-	partial void OnCoachesQTYChanged();
-	partial void OnTVChanging(int value);
-	partial void OnTVChanged();
-	partial void OnTreasuryChanging(int value);
-	partial void OnTreasuryChanged();
-	partial void OnInTourneyChanging(bool value);
-	partial void OnInTourneyChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnRaceIDChanging(int value);
+    partial void OnRaceIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnRerollsQTYChanging(int value);
+    partial void OnRerollsQTYChanged();
+    partial void OnApothsChanging(bool value);
+    partial void OnApothsChanged();
+    partial void OnCheerLeadersQTYChanging(int value);
+    partial void OnCheerLeadersQTYChanged();
+    partial void OnCoachesQTYChanging(int value);
+    partial void OnCoachesQTYChanged();
+    partial void OnTVChanging(int value);
+    partial void OnTVChanged();
+    partial void OnTreasuryChanging(int value);
+    partial void OnTreasuryChanged();
+    partial void OnInTourneyChanging(bool value);
+    partial void OnInTourneyChanged();
+    #endregion
 		
 		public User_Roster()
 		{
@@ -536,7 +572,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RaceID", DbType="Int NOT NULL")]
-		[Required]
 		public int RaceID
 		{
 			get
@@ -561,7 +596,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		[Required]
 		public string Name
 		{
 			get
@@ -682,7 +716,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Treasury", DbType="Int NOT NULL")]
-		[Required]
 		public int Treasury
 		{
 			get
@@ -809,9 +842,9 @@ namespace BB2020MVC.Models
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;
-		[StringLength(1000, MinimumLength = 1, ErrorMessage = "Must have a value")]
+		
 		private string _Name;
-		[StringLength(1000, MinimumLength = 1, ErrorMessage = "Must have a value")]
+		
 		private string _Description;
 		
 		private EntitySet<Race> _Races;
@@ -820,17 +853,17 @@ namespace BB2020MVC.Models
 		
 		private EntitySet<Race> _Races1;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	partial void OnDescriptionChanging(string value);
-	partial void OnDescriptionChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
 		
 		public Rules_SpecialRule()
 		{
@@ -1008,11 +1041,10 @@ namespace BB2020MVC.Models
 		
 		private int _ID;
 		
-		
 		private string _Name;
 		
 		private bool _Apothecary;
-
+		
 		private int _RerollCost;
 		
 		private System.Nullable<int> _SRID1;
@@ -1029,25 +1061,25 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<Rules_SpecialRule> _Rules_SpecialRule2;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	partial void OnApothecaryChanging(bool value);
-	partial void OnApothecaryChanged();
-	partial void OnRerollCostChanging(int value);
-	partial void OnRerollCostChanged();
-	partial void OnSRID1Changing(System.Nullable<int> value);
-	partial void OnSRID1Changed();
-	partial void OnSRID2Changing(System.Nullable<int> value);
-	partial void OnSRID2Changed();
-	partial void OnSRID3Changing(System.Nullable<int> value);
-	partial void OnSRID3Changed();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnApothecaryChanging(bool value);
+    partial void OnApothecaryChanged();
+    partial void OnRerollCostChanging(int value);
+    partial void OnRerollCostChanged();
+    partial void OnSRID1Changing(System.Nullable<int> value);
+    partial void OnSRID1Changed();
+    partial void OnSRID2Changing(System.Nullable<int> value);
+    partial void OnSRID2Changed();
+    partial void OnSRID3Changing(System.Nullable<int> value);
+    partial void OnSRID3Changed();
+    #endregion
 		
 		public Race()
 		{
@@ -1083,7 +1115,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NChar(20) NOT NULL", CanBeNull=false)]
-		[Required, StringLength(1000, MinimumLength = 1, ErrorMessage = "Must have a value")]
 		public string Name
 		{
 			get
@@ -1124,7 +1155,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RerollCost", DbType="Int NOT NULL")]
-		[Required, Range(minimum: 0, maximum: 1000, ErrorMessage = "Cannot be blank or above 1000")]
 		public int RerollCost
 		{
 			get
@@ -1367,15 +1397,15 @@ namespace BB2020MVC.Models
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;
-
+		
 		private int _RaceID;
-
+		
 		private int _MA;
-
+		
 		private int _AG;
-
+		
 		private int _AV;
-
+		
 		private System.Nullable<int> _PA;
 		
 		private int _Cost;
@@ -1386,33 +1416,36 @@ namespace BB2020MVC.Models
 		
 		private EntitySet<User_Rosters_Positional> _User_Rosters_Positionals;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnRaceIDChanging(int value);
-	partial void OnRaceIDChanged();
-	partial void OnMAChanging(int value);
-	partial void OnMAChanged();
-	partial void OnAGChanging(int value);
-	partial void OnAGChanged();
-	partial void OnAVChanging(int value);
-	partial void OnAVChanged();
-	partial void OnPAChanging(System.Nullable<int> value);
-	partial void OnPAChanged();
-	partial void OnCostChanging(int value);
-	partial void OnCostChanged();
-	partial void OnSTRENGTHChanging(System.Nullable<int> value);
-	partial void OnSTRENGTHChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	#endregion
+		private EntitySet<Races_Players_SkillType> _Races_Players_SkillTypes;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnRaceIDChanging(int value);
+    partial void OnRaceIDChanged();
+    partial void OnMAChanging(int value);
+    partial void OnMAChanged();
+    partial void OnAGChanging(int value);
+    partial void OnAGChanged();
+    partial void OnAVChanging(int value);
+    partial void OnAVChanged();
+    partial void OnPAChanging(System.Nullable<int> value);
+    partial void OnPAChanged();
+    partial void OnCostChanging(int value);
+    partial void OnCostChanged();
+    partial void OnSTRENGTHChanging(System.Nullable<int> value);
+    partial void OnSTRENGTHChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
 		
 		public Races_Player()
 		{
 			this._User_Rosters_Positionals = new EntitySet<User_Rosters_Positional>(new Action<User_Rosters_Positional>(this.attach_User_Rosters_Positionals), new Action<User_Rosters_Positional>(this.detach_User_Rosters_Positionals));
+			this._Races_Players_SkillTypes = new EntitySet<Races_Players_SkillType>(new Action<Races_Players_SkillType>(this.attach_Races_Players_SkillTypes), new Action<Races_Players_SkillType>(this.detach_Races_Players_SkillTypes));
 			OnCreated();
 		}
 		
@@ -1437,7 +1470,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RaceID", DbType="Int NOT NULL")]
-		[Required]
 		public int RaceID
 		{
 			get
@@ -1458,8 +1490,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MA", DbType="Int NOT NULL")]
-
-		
 		public int MA
 		{
 			get
@@ -1480,7 +1510,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AG", DbType="Int NOT NULL")]
-		
 		public int AG
 		{
 			get
@@ -1501,7 +1530,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AV", DbType="Int NOT NULL")]
-		
 		public int AV
 		{
 			get
@@ -1522,7 +1550,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PA", DbType="Int")]
-		
 		public System.Nullable<int> PA
 		{
 			get
@@ -1543,7 +1570,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Int NOT NULL")]
-		[Required]
 		public int Cost
 		{
 			get
@@ -1564,7 +1590,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRENGTH", DbType="Int")]
-
 		public System.Nullable<int> STRENGTH
 		{
 			get
@@ -1585,7 +1610,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX)")]
-		[Required]
 		public string Name
 		{
 			get
@@ -1615,6 +1639,19 @@ namespace BB2020MVC.Models
 			set
 			{
 				this._User_Rosters_Positionals.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Races_Player_Races_Players_SkillType", Storage="_Races_Players_SkillTypes", ThisKey="ID", OtherKey="PlayerID")]
+		public EntitySet<Races_Players_SkillType> Races_Players_SkillTypes
+		{
+			get
+			{
+				return this._Races_Players_SkillTypes;
+			}
+			set
+			{
+				this._Races_Players_SkillTypes.Assign(value);
 			}
 		}
 		
@@ -1649,6 +1686,18 @@ namespace BB2020MVC.Models
 			this.SendPropertyChanging();
 			entity.Races_Player = null;
 		}
+		
+		private void attach_Races_Players_SkillTypes(Races_Players_SkillType entity)
+		{
+			this.SendPropertyChanging();
+			entity.Races_Player = this;
+		}
+		
+		private void detach_Races_Players_SkillTypes(Races_Players_SkillType entity)
+		{
+			this.SendPropertyChanging();
+			entity.Races_Player = null;
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Rules.Skills.List]")]
@@ -1660,11 +1709,11 @@ namespace BB2020MVC.Models
 		private int _ID;
 		
 		private int _SkillTypeID;
-
+		
 		private string _Name;
 		
 		private bool _NotOptional;
-
+		
 		private string _Description;
 		
 		private EntitySet<Races_Players_Skill> _Races_Players_Skills;
@@ -1673,21 +1722,21 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<Rules_Skills_Type> _Rules_Skills_Type;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnSkillTypeIDChanging(int value);
-	partial void OnSkillTypeIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	partial void OnNotOptionalChanging(bool value);
-	partial void OnNotOptionalChanged();
-	partial void OnDescriptionChanging(string value);
-	partial void OnDescriptionChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSkillTypeIDChanging(int value);
+    partial void OnSkillTypeIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnNotOptionalChanging(bool value);
+    partial void OnNotOptionalChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
 		
 		public Rules_Skills_List()
 		{
@@ -1742,7 +1791,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		[Required]
 		public string Name
 		{
 			get
@@ -1783,7 +1831,6 @@ namespace BB2020MVC.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		[Required]
 		public string Description
 		{
 			get
@@ -1922,17 +1969,17 @@ namespace BB2020MVC.Models
 		
 		private EntitySet<User_Rosters_LvlType> _User_Rosters_LvlTypes;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnDescriptionChanging(string value);
-	partial void OnDescriptionChanged();
-	partial void OnCostChanging(int value);
-	partial void OnCostChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnCostChanging(int value);
+    partial void OnCostChanged();
+    #endregion
 		
 		public Rules_LvlType()
 		{
@@ -2062,17 +2109,17 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<User_Rosters_Positional> _User_Rosters_Positional;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnPositionIDChanging(int value);
-	partial void OnPositionIDChanged();
-	partial void OnLvlTypeIDChanging(int value);
-	partial void OnLvlTypeIDChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPositionIDChanging(int value);
+    partial void OnPositionIDChanged();
+    partial void OnLvlTypeIDChanging(int value);
+    partial void OnLvlTypeIDChanged();
+    #endregion
 		
 		public User_Rosters_LvlType()
 		{
@@ -2241,13 +2288,13 @@ namespace BB2020MVC.Models
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;
-		[Required]
+		
 		private int _PositionID;
-		[Required]
+		
 		private int _SPP;
 		
 		private int _RosterID;
-		[Required, MinLength(1)]
+		
 		private string _Name;
 		
 		private EntitySet<User_Rosters_LvlType> _User_Rosters_LvlTypes;
@@ -2258,21 +2305,21 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<User_Roster> _User_Roster;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnPositionIDChanging(int value);
-	partial void OnPositionIDChanged();
-	partial void OnSPPChanging(int value);
-	partial void OnSPPChanged();
-	partial void OnRosterIDChanging(int value);
-	partial void OnRosterIDChanged();
-	partial void OnNameChanging(string value);
-	partial void OnNameChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPositionIDChanging(int value);
+    partial void OnPositionIDChanged();
+    partial void OnSPPChanging(int value);
+    partial void OnSPPChanged();
+    partial void OnRosterIDChanging(int value);
+    partial void OnRosterIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
 		
 		public User_Rosters_Positional()
 		{
@@ -2537,7 +2584,7 @@ namespace BB2020MVC.Models
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _ID;
-		[Required]
+		
 		private int _SkillID;
 		
 		private int _PositionalID;
@@ -2546,17 +2593,17 @@ namespace BB2020MVC.Models
 		
 		private EntityRef<Rules_Skills_List> _Rules_Skills_List;
 		
-	#region Extensibility Method Definitions
-	partial void OnLoaded();
-	partial void OnValidate(System.Data.Linq.ChangeAction action);
-	partial void OnCreated();
-	partial void OnIDChanging(int value);
-	partial void OnIDChanged();
-	partial void OnSkillIDChanging(int value);
-	partial void OnSkillIDChanged();
-	partial void OnPositionalIDChanging(int value);
-	partial void OnPositionalIDChanged();
-	#endregion
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnSkillIDChanging(int value);
+    partial void OnSkillIDChanged();
+    partial void OnPositionalIDChanging(int value);
+    partial void OnPositionalIDChanged();
+    #endregion
 		
 		public User_Rosters_Skill()
 		{
@@ -2697,6 +2744,222 @@ namespace BB2020MVC.Models
 						this._SkillID = default(int);
 					}
 					this.SendPropertyChanged("Rules_Skills_List");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Races.Players.SkillTypes]")]
+	public partial class Races_Players_SkillType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _TypeID;
+		
+		private int _PlayerID;
+		
+		private bool _Single;
+		
+		private EntityRef<Races_Player> _Races_Player;
+		
+		private EntityRef<Rules_Skills_Type> _Rules_Skills_Type;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnTypeIDChanging(int value);
+    partial void OnTypeIDChanged();
+    partial void OnPlayerIDChanging(int value);
+    partial void OnPlayerIDChanged();
+    partial void OnSingleChanging(bool value);
+    partial void OnSingleChanged();
+    #endregion
+		
+		public Races_Players_SkillType()
+		{
+			this._Races_Player = default(EntityRef<Races_Player>);
+			this._Rules_Skills_Type = default(EntityRef<Rules_Skills_Type>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeID", DbType="Int NOT NULL")]
+		public int TypeID
+		{
+			get
+			{
+				return this._TypeID;
+			}
+			set
+			{
+				if ((this._TypeID != value))
+				{
+					if (this._Rules_Skills_Type.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTypeIDChanging(value);
+					this.SendPropertyChanging();
+					this._TypeID = value;
+					this.SendPropertyChanged("TypeID");
+					this.OnTypeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PlayerID", DbType="Int NOT NULL")]
+		public int PlayerID
+		{
+			get
+			{
+				return this._PlayerID;
+			}
+			set
+			{
+				if ((this._PlayerID != value))
+				{
+					if (this._Races_Player.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPlayerIDChanging(value);
+					this.SendPropertyChanging();
+					this._PlayerID = value;
+					this.SendPropertyChanged("PlayerID");
+					this.OnPlayerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Single", DbType="Bit NOT NULL")]
+		public bool Single
+		{
+			get
+			{
+				return this._Single;
+			}
+			set
+			{
+				if ((this._Single != value))
+				{
+					this.OnSingleChanging(value);
+					this.SendPropertyChanging();
+					this._Single = value;
+					this.SendPropertyChanged("Single");
+					this.OnSingleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Races_Player_Races_Players_SkillType", Storage="_Races_Player", ThisKey="PlayerID", OtherKey="ID", IsForeignKey=true)]
+		public Races_Player Races_Player
+		{
+			get
+			{
+				return this._Races_Player.Entity;
+			}
+			set
+			{
+				Races_Player previousValue = this._Races_Player.Entity;
+				if (((previousValue != value) 
+							|| (this._Races_Player.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Races_Player.Entity = null;
+						previousValue.Races_Players_SkillTypes.Remove(this);
+					}
+					this._Races_Player.Entity = value;
+					if ((value != null))
+					{
+						value.Races_Players_SkillTypes.Add(this);
+						this._PlayerID = value.ID;
+					}
+					else
+					{
+						this._PlayerID = default(int);
+					}
+					this.SendPropertyChanged("Races_Player");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Rules_Skills_Type_Races_Players_SkillType", Storage="_Rules_Skills_Type", ThisKey="TypeID", OtherKey="ID", IsForeignKey=true)]
+		public Rules_Skills_Type Rules_Skills_Type
+		{
+			get
+			{
+				return this._Rules_Skills_Type.Entity;
+			}
+			set
+			{
+				Rules_Skills_Type previousValue = this._Rules_Skills_Type.Entity;
+				if (((previousValue != value) 
+							|| (this._Rules_Skills_Type.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Rules_Skills_Type.Entity = null;
+						previousValue.Races_Players_SkillTypes.Remove(this);
+					}
+					this._Rules_Skills_Type.Entity = value;
+					if ((value != null))
+					{
+						value.Races_Players_SkillTypes.Add(this);
+						this._TypeID = value.ID;
+					}
+					else
+					{
+						this._TypeID = default(int);
+					}
+					this.SendPropertyChanged("Rules_Skills_Type");
 				}
 			}
 		}

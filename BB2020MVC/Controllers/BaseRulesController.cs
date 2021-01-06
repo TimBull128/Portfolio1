@@ -32,7 +32,7 @@ namespace BB2020MVC.Controllers
         public ActionResult AllSkills()
         {
             IList<Rules_Skills_List> SkillList = _RulesRepository.GetAllSkills();
-            IList<Rules_Skills_Type> SkillTypes = _RulesRepository.GetAllSkillTypes();
+            IList<Rules_Skills_Type> SkillTypes = _RulesRepository.GetAllRulesSkillTypes();
             ViewBag.SkillTypes = SkillTypes;
             return View(SkillList);
         }
@@ -40,14 +40,14 @@ namespace BB2020MVC.Controllers
         public ActionResult DeleteSkill(int ID)
         {
             var SelectedSkill = _RulesRepository.GetSkill(ID);
-            var SkillType = _RulesRepository.GetSkillTypeByID(SelectedSkill.SkillTypeID);
+            var SkillType = _RulesRepository.GetSkillsByType(SelectedSkill.SkillTypeID);
             ViewBag.SkillType = SkillType;
             return View(SelectedSkill);
         }
         [HttpPost]
         public ActionResult DeleteSkill(Rules_Skills_List Skill)
         {
-            
+
             _RulesRepository.DeleteSkill(Skill.ID);
 
             return RedirectToAction("AllSkills");
@@ -57,15 +57,8 @@ namespace BB2020MVC.Controllers
         //ToDo: Test when SkillTypes are added
         public ActionResult AddSkill()
         {
-            Rules_Skills_List NewSkill = new Rules_Skills_List()
-            {
-                ID = _RulesRepository.GetNewSkillID(),
-                Name = "",
-                SkillTypeID = 99,
-                Description = "",
-                NotOptional = false
-            };
-            ViewBag.SkillTypes = _RulesRepository.CreateSelectListType(NewSkill.SkillTypeID);
+            Rules_Skills_List NewSkill = _RulesRepository.GetNewSkillBase();
+            ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes();
             return View(NewSkill);
         }
         [HttpPost]
@@ -78,7 +71,7 @@ namespace BB2020MVC.Controllers
             }
             else
             {
-                ViewBag.SkillTypes = _RulesRepository.CreateSelectListType(Skill.SkillTypeID);
+                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
                 return View(Skill);
             }
 
@@ -88,7 +81,7 @@ namespace BB2020MVC.Controllers
         {
 
             Rules_Skills_List Skill = _RulesRepository.GetSkill(ID);
-            ViewBag.SkillTypes = _RulesRepository.CreateSelectListType(Skill.SkillTypeID);
+            ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
             return View(Skill);
         }
         [HttpPost]
@@ -97,30 +90,23 @@ namespace BB2020MVC.Controllers
             if (ModelState.IsValid)
             {
                 _RulesRepository.EditSkill(Skill);
-                _RulesRepository.SaveChanges();
                 return RedirectToAction("AllSkills");
             }
             else
             {
-                ViewBag.SkillTypes = _RulesRepository.CreateSelectListType(Skill.SkillTypeID);
+                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
                 return View(Skill);
             }
         }
 
         public ActionResult AllSkillTypes()
         {
-            IList<Rules_Skills_Type> SkillList = _RulesRepository.GetAllSkillTypes();
+            IList<Rules_Skills_Type> SkillList = _RulesRepository.GetAllRulesSkillTypes();
             return View(SkillList);
         }
         public ActionResult AddSkillType()
         {
-            Rules_Skills_Type NewSkillType = new Rules_Skills_Type()
-            {
-                ID = _RulesRepository.GetNewSkillTypeID(),
-                Name = ""
-
-            };
-            
+            Rules_Skills_Type NewSkillType = _RulesRepository.GetNewSkillTypeBase();
             return View(NewSkillType);
         }
         [HttpPost]
@@ -139,7 +125,7 @@ namespace BB2020MVC.Controllers
         }
         public ActionResult EditSkillType(int ID)
         {
-            Rules_Skills_Type SelectedRule = _RulesRepository.GetSkillTypeByID(ID);
+            Rules_Skills_Type SelectedRule = _RulesRepository.GetSkillType(ID);
             return View(SelectedRule);
         }
         [HttpPost]
@@ -157,7 +143,7 @@ namespace BB2020MVC.Controllers
         }
         public ActionResult DeleteSkillType(int ID)
         {
-            Rules_Skills_Type SelectRules = _RulesRepository.GetSkillTypeByID(ID);
+            Rules_Skills_Type SelectRules = _RulesRepository.GetSkillType(ID);
             return View(SelectRules);
         }
         [HttpPost]
@@ -185,15 +171,16 @@ namespace BB2020MVC.Controllers
         }
         [HttpPost]
 
-        public ActionResult AddSpecialRule(FormCollection FC) {
-            Rules_SpecialRule SpecialRule = new Rules_SpecialRule()
+        public ActionResult AddSpecialRule(Rules_SpecialRule SpecialRule) {
+            if (ModelState.IsValid)
             {
-                Name = FC["Name"],
-                Description = FC["Description"]
-            };
-            _RulesRepository.AddSpecialRule(SpecialRule);
-            _RulesRepository.SaveChanges();
-            return RedirectToAction("AllSpecialRules");
+                _RulesRepository.AddSpecialRule(SpecialRule);
+                return RedirectToAction("AllSpecialRules");
+            }
+            else
+            {
+                return View(SpecialRule);
+            }
         }
 
 
@@ -204,32 +191,29 @@ namespace BB2020MVC.Controllers
             return View(SpecialRule);
         }
         [HttpPost]
-        public ActionResult DeleteSpecialRule(FormCollection FC)
+        public ActionResult DeleteSpecialRule(Rules_SpecialRule SpecialRule)
         {
-            if (int.TryParse(FC["ID"], out int Result))
-            {
-                _RulesRepository.DeleteSpecialRule(Result);
-            }
-            _RulesRepository.SaveChanges();
+
+            _RulesRepository.DeleteSpecialRule(SpecialRule.ID);
             return RedirectToAction("AllSpecialRules");
         }
         public ActionResult EditSpecialRule(int ID)
         {
-            Rules_SpecialRule SpecialRule = _RulesRepository.GetSpecialRuleBase(ID);
+            Rules_SpecialRule SpecialRule = _RulesRepository.GetSpecialRule(ID);
             return View(SpecialRule);
         }
-        public ActionResult EditSpecialRule(FormCollection FC)
+        [HttpPost]
+        public ActionResult EditSpecialRule(Rules_SpecialRule SpecialRule)
         {
-            int.TryParse(FC["ID"], out int ID);
-            Rules_SpecialRule SpecialRule = new Rules_SpecialRule()
+            if (ModelState.IsValid)
             {
-                ID = ID,
-                Name = FC["Name"],
-                Description = FC["Description"]
-
-            };
-            _RulesRepository.EditSpecialRule(SpecialRule);
-            return RedirectToAction("AllSpecialRules");
+                _RulesRepository.EditSpecialRule(SpecialRule);
+                return RedirectToAction("AllSpecialRules");
+            }
+            else
+            {
+                return View(SpecialRule);
+            }
         }
     }
 }

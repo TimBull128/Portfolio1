@@ -5,6 +5,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Association Name="Rules_Skills_Type_Rules_Skills_List" Member="Rules_Skills_Lists" ThisKey="ID" OtherKey="SkillTypeID" Type="Rules_Skills_List" />
+      <Association Name="Rules_Skills_Type_Races_Players_SkillType" Member="Races_Players_SkillTypes" ThisKey="ID" OtherKey="TypeID" Type="Races_Players_SkillType" />
     </Type>
   </Table>
   <Table Name="dbo.[Races.Players.Skills]" Member="Races_Players_Skills">
@@ -68,6 +69,7 @@
       <Column Name="STRENGTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="Races_Player_User_Rosters_Positional" Member="User_Rosters_Positionals" ThisKey="ID" OtherKey="PositionID" Type="User_Rosters_Positional" />
+      <Association Name="Races_Player_Races_Players_SkillType" Member="Races_Players_SkillTypes" ThisKey="ID" OtherKey="PlayerID" Type="Races_Players_SkillType" />
     </Type>
   </Table>
   <Table Name="dbo.[Rules.Skills.List]" Member="Rules_Skills_Lists">
@@ -119,6 +121,16 @@
       <Column Name="PositionalID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="User_Rosters_Positional_User_Rosters_Skill" Member="User_Rosters_Positional" ThisKey="PositionalID" OtherKey="ID" Type="User_Rosters_Positional" IsForeignKey="true" />
       <Association Name="Rules_Skills_List_User_Rosters_Skill" Member="Rules_Skills_List" ThisKey="SkillID" OtherKey="ID" Type="Rules_Skills_List" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[Races.Players.SkillTypes]" Member="Races_Players_SkillTypes">
+    <Type Name="Races_Players_SkillType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PlayerID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Single" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Races_Player_Races_Players_SkillType" Member="Races_Player" ThisKey="PlayerID" OtherKey="ID" Type="Races_Player" IsForeignKey="true" />
+      <Association Name="Rules_Skills_Type_Races_Players_SkillType" Member="Rules_Skills_Type" ThisKey="TypeID" OtherKey="ID" Type="Rules_Skills_Type" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

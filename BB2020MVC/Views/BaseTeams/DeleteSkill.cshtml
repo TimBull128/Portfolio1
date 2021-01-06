@@ -8,23 +8,29 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    
+
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @ViewBag.Player.Name
-        </dt>
 
+    <table class="table table-borderless table-active">
+        <tr>
+            <td>Player Name:</td>
+            <td>@ViewBag.Player.Name</td>
+        </tr>
+        <tr>
+            <td>Skill Name:</td>
+            <td>@ViewBag.SkillName</td>
+        </tr>
 
-        <dt>
-            @ViewBag.SkillName
-        </dt>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    </table>
+    <br/>
+    <hr />
+    <br />
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
         @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.PlayerID)
+        @Html.HiddenFor(model => model.SkillID)
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "Index")

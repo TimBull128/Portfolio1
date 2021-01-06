@@ -24,12 +24,12 @@ namespace BB2020MVC.Models
         public IList<Rules_SpecialRule> SpecialRules;
         public IList<BaseTeamStruct> Team;
 
+
     }
-    public class RosterNames
+    public class CustomSkillType
     {
-        public int ID, RaceID;
-        public string Name, RaceName;
-        
+        public int ID, SkillTypeID;
+        public string SkillTypeName;
     }
     public class NewRaceStruct
     {
@@ -48,9 +48,6 @@ namespace BB2020MVC.Models
         public int ID;
         public int? PlayerID, SkillID;
     }
-    /// <summary>
-    /// 
-    /// </summary>
 
     public class RaceNames
     {
@@ -63,34 +60,22 @@ namespace BB2020MVC.Models
         public string Name, RaceName;
         public int? PA;
         public IList<Races_Players_Skill> PlayerSkills;
-
+        public IList<CustomSkillType> SingleSkillTypes;
+        public IList<CustomSkillType> DoubleSkillTypes;
     }
-    
+
 
 
     //------------------------------------------------------------------------------------
 
+    //Rosters Custom Structs
 
+    //------------------------------------------------------------------------------------
 
-    public class RosterStruct
+    public class RosterNames
     {
-        public int ID, RaceID, Treasury, TV, TeamRerolls, Cheerleaders, Coaches;
-        public string RosterName, RaceName;
-        public bool Apoth;
-        public IList<RosterTeamStruct> Players;
-        public IList<Rules_SpecialRule> SpecialRules;
-    }
-
-
-    public class RosterTeamStruct
-    {
-
-        public string Type, Name;
-        public IList<Rules_Skills_List> Skills;
-        public IList<Rules_LvlType> LevelUpTypes;
-        public bool Apoth, InTourney;
-        public int ID, MA, AG, AV, ST, PA, Cost, SPP, Treasury;
-
+        public int ID, RaceID;
+        public string Name, RaceName;
 
     }
 }

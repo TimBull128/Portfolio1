@@ -265,7 +265,6 @@ namespace BB2020MVC.Controllers
             if (ModelState.IsValid)
             {
                 _RaceRepository.AddPlayerSkill(PlayerSkill);
-                _RaceRepository.SaveChanges();
                 return RedirectToAction("ViewRace", new { ID = Player.RaceID });
             }
             else
@@ -282,7 +281,7 @@ namespace BB2020MVC.Controllers
 
         public ActionResult SelectDeleteSkill(int ID)
         {
-            IList<Races_Players_Skill> SkillList = _RaceRepository.RaceGetPlayerSkillsByPlayerID(ID);
+            IList<Races_Players_Skill> SkillList = _RaceRepository.GetPlayerSkillsbyPlayerID(ID);
             IList<Rules_Skills_List> SkillRules = new List<Rules_Skills_List>();
             
             foreach(var Skill in SkillList)
@@ -295,7 +294,7 @@ namespace BB2020MVC.Controllers
         //TODO: Test after adding skills to player
         public ActionResult DeleteSkill(int ID)
         {
-            Races_Players_Skill Skill = _RaceRepository.GetSkillBase(ID);
+            Races_Players_Skill Skill = _RaceRepository.GetPlayerSkillBase(ID);
             Rules_Skills_List SkillName = _RaceRepository.GetSkill((int)Skill.SkillID);
             ViewBag.Player = _RaceRepository.GetPlayer((int)Skill.PlayerID);
             ViewBag.SkillName = SkillName.Name;
@@ -304,12 +303,9 @@ namespace BB2020MVC.Controllers
         [HttpPost]
         public ActionResult DeleteSkill(Races_Players_Skill GatheredSkill)
         {
-            BaseTeamStruct Player = _RaceRepository.GetPlayer((int)GatheredSkill.PlayerID);
-            int IRaceID = Player.RaceID;
-            
-
-                _RaceRepository.DeletePlayerSkill(GatheredSkill.ID);
-                return RedirectToAction("ViewRace", new { RaceID = IRaceID });
+            Races_Player Player = _RaceRepository.GetPlayerBase((int)GatheredSkill.PlayerID);
+            _RaceRepository.DeletePlayerSkill(GatheredSkill.ID);
+            return RedirectToAction("ViewRace", new { ID = Player.RaceID });
         }
 
 
@@ -322,8 +318,7 @@ namespace BB2020MVC.Controllers
             ViewBag.AGSelect = _RaceRepository.SelectListAG(SelectedPlayer.AG);
             ViewBag.PASelect = _RaceRepository.SelectListPA((int)SelectedPlayer.PA);
             ViewBag.AVSelect = _RaceRepository.SelectListAV(SelectedPlayer.AV);
-            ViewBag.RaceName = _RaceRepository.GetRace(SelectedPlayer.RaceID).Name;
-            ViewBag.Race = _RaceRepository.GetRace(SelectedPlayer.RaceID);
+            ViewBag.Race = _RaceRepository.GetRaceBase(SelectedPlayer.RaceID);
             return View(SelectedPlayer);
         }
         [HttpPost]
@@ -331,9 +326,7 @@ namespace BB2020MVC.Controllers
         {
             if (ModelState.IsValid)
             {
-
                 _RaceRepository.EditPlayer(Player);
-                _RaceRepository.SaveChanges();
                 return RedirectToAction("ViewRace", new { ID = Player.RaceID });
             }
             else
@@ -343,8 +336,8 @@ namespace BB2020MVC.Controllers
                 ViewBag.AGSelect = _RaceRepository.SelectListAG(Player.AG);
                 ViewBag.PASelect = _RaceRepository.SelectListPA((int)Player.PA);
                 ViewBag.AVSelect = _RaceRepository.SelectListAV(Player.AV);
-                ViewBag.RaceName = _RaceRepository.GetRace(Player.RaceID).Name;
-                ViewBag.Race = _RaceRepository.GetRace(Player.RaceID);
+                ViewBag.RaceName = _RaceRepository.GetRaceBase(Player.RaceID).Name;
+                ViewBag.Race = _RaceRepository.GetRaceBase(Player.RaceID);
                 return View(Player);
             }
 
