@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BB2020ModelStoreContainer" CdmEntityContainer="BB2020Entities">
+    <EntitySetMapping Name="Races">
+      <EntityTypeMapping TypeName="BB2020Model.Race">
+        <MappingFragment StoreEntitySet="Races">
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Apothecary" ColumnName="Apothecary" />
+          <ScalarProperty Name="RerollCost" ColumnName="RerollCost" />
+          <ScalarProperty Name="Tier" ColumnName="Tier" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_Players">
+      <EntityTypeMapping TypeName="BB2020Model.Races_Players">
+        <MappingFragment StoreEntitySet="Races_Players">
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="MA" ColumnName="MA" />
+          <ScalarProperty Name="AG" ColumnName="AG" />
+          <ScalarProperty Name="AV" ColumnName="AV" />
+          <ScalarProperty Name="PA" ColumnName="PA" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="ST" ColumnName="ST" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MaxQTY" ColumnName="MaxQTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_Players_Skills">
+      <EntityTypeMapping TypeName="BB2020Model.Races_Players_Skills">
+        <MappingFragment StoreEntitySet="Races_Players_Skills">
+          <ScalarProperty Name="PSkillID" ColumnName="PSkillID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_Players_SkillTypes">
+      <EntityTypeMapping TypeName="BB2020Model.Races_Players_SkillTypes">
+        <MappingFragment StoreEntitySet="Races_Players_SkillTypes">
+          <ScalarProperty Name="PSkillTypeID" ColumnName="PSkillTypeID" />
+          <ScalarProperty Name="STypeID" ColumnName="STypeID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="Single" ColumnName="Single" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Races_SpecialRules">
+      <EntityTypeMapping TypeName="BB2020Model.Races_SpecialRules">
+        <MappingFragment StoreEntitySet="Races_SpecialRules">
+          <ScalarProperty Name="RSRID" ColumnName="RSRID" />
+          <ScalarProperty Name="SRID" ColumnName="SRID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_InjuryTypes">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_InjuryTypes">
+        <MappingFragment StoreEntitySet="Rules_InjuryTypes">
+          <ScalarProperty Name="InjuryID" ColumnName="InjuryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_LvlType">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_LvlType">
+        <MappingFragment StoreEntitySet="Rules_LvlType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Skills_FSkills">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Skills_FSkills">
+        <MappingFragment StoreEntitySet="Rules_Skills_FSkills">
+          <ScalarProperty Name="ForbiddenID" ColumnName="ForbiddenID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="FSkillID" ColumnName="FSkillID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Skills_List">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Skills_List">
+        <MappingFragment StoreEntitySet="Rules_Skills_List">
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="SkillTypeID" ColumnName="SkillTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NotOptional" ColumnName="NotOptional" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_Skills_Types">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_Skills_Types">
+        <MappingFragment StoreEntitySet="Rules_Skills_Types">
+          <ScalarProperty Name="STypeID" ColumnName="STypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rules_SpecialRules">
+      <EntityTypeMapping TypeName="BB2020Model.Rules_SpecialRules">
+        <MappingFragment StoreEntitySet="Rules_SpecialRules">
+          <ScalarProperty Name="SRID" ColumnName="SRID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters">
+        <MappingFragment StoreEntitySet="User_Rosters">
+          <ScalarProperty Name="RosterID" ColumnName="RosterID" />
+          <ScalarProperty Name="RaceID" ColumnName="RaceID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RerollsQTY" ColumnName="RerollsQTY" />
+          <ScalarProperty Name="Apoths" ColumnName="Apoths" />
+          <ScalarProperty Name="CheerLeadersQTY" ColumnName="CheerLeadersQTY" />
+          <ScalarProperty Name="CoachesQTY" ColumnName="CoachesQTY" />
+          <ScalarProperty Name="TV" ColumnName="TV" />
+          <ScalarProperty Name="Treasury" ColumnName="Treasury" />
+          <ScalarProperty Name="InTourney" ColumnName="InTourney" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters_Injury">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters_Injury">
+        <MappingFragment StoreEntitySet="User_Rosters_Injury">
+          <ScalarProperty Name="RInjuryID" ColumnName="RInjuryID" />
+          <ScalarProperty Name="RPlayerID" ColumnName="RPlayerID" />
+          <ScalarProperty Name="InjuryID" ColumnName="InjuryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters_LvlTypes">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters_LvlTypes">
+        <MappingFragment StoreEntitySet="User_Rosters_LvlTypes">
+          <ScalarProperty Name="RLevelTypeID" ColumnName="RLevelTypeID" />
+          <ScalarProperty Name="RPlayerID" ColumnName="RPlayerID" />
+          <ScalarProperty Name="LvlTypeID" ColumnName="LvlTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters_Players">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters_Players">
+        <MappingFragment StoreEntitySet="User_Rosters_Players">
+          <ScalarProperty Name="RPlayerID" ColumnName="RPlayerID" />
+          <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+          <ScalarProperty Name="SPP" ColumnName="SPP" />
+          <ScalarProperty Name="RosterID" ColumnName="RosterID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Rosters_Skills">
+      <EntityTypeMapping TypeName="BB2020Model.User_Rosters_Skills">
+        <MappingFragment StoreEntitySet="User_Rosters_Skills">
+          <ScalarProperty Name="RSkillID" ColumnName="RSkillID" />
+          <ScalarProperty Name="SkillID" ColumnName="SkillID" />
+          <ScalarProperty Name="RPlayerID" ColumnName="RPlayerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

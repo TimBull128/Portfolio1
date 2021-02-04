@@ -32,11 +32,12 @@ namespace BB2020MVC.Controllers
         public ActionResult AllSkills()
         {
             IList<Rules_Skills_List> SkillList = _RulesRepository.GetAllSkills();
-            IList<Rules_Skills_Type> SkillTypes = _RulesRepository.GetAllRulesSkillTypes();
+            IList<Rules_Skills_Types> SkillTypes = _RulesRepository.GetAllRulesSkillTypes();
+            
             ViewBag.SkillTypes = SkillTypes;
             return View(SkillList);
         }
-        //ToDo: Test when Skill added
+
         public ActionResult DeleteSkill(int ID)
         {
             var SelectedSkill = _RulesRepository.GetSkill(ID);
@@ -48,13 +49,12 @@ namespace BB2020MVC.Controllers
         public ActionResult DeleteSkill(Rules_Skills_List Skill)
         {
 
-            _RulesRepository.DeleteSkill(Skill.ID);
+            _RulesRepository.DeleteSkill(Skill.SkillID);
 
             return RedirectToAction("AllSkills");
 
         }
 
-        //ToDo: Test when SkillTypes are added
         public ActionResult AddSkill()
         {
             Rules_Skills_List NewSkill = _RulesRepository.GetNewSkillBase();
@@ -71,17 +71,17 @@ namespace BB2020MVC.Controllers
             }
             else
             {
-                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
+                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes();
                 return View(Skill);
             }
 
         }
-        //ToDo: Test when SkillTypes and skill is added
+
         public ActionResult EditSkill(int ID)
         {
 
             Rules_Skills_List Skill = _RulesRepository.GetSkill(ID);
-            ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
+            ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes();
             return View(Skill);
         }
         [HttpPost]
@@ -94,23 +94,23 @@ namespace BB2020MVC.Controllers
             }
             else
             {
-                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes(Skill.SkillTypeID);
+                ViewBag.SkillTypes = _RulesRepository.CreateSelectListSkillTypes();
                 return View(Skill);
             }
         }
 
         public ActionResult AllSkillTypes()
         {
-            IList<Rules_Skills_Type> SkillList = _RulesRepository.GetAllRulesSkillTypes();
+            IList<Rules_Skills_Types> SkillList = _RulesRepository.GetAllRulesSkillTypes();
             return View(SkillList);
         }
         public ActionResult AddSkillType()
         {
-            Rules_Skills_Type NewSkillType = _RulesRepository.GetNewSkillTypeBase();
+            Rules_Skills_Types NewSkillType = _RulesRepository.GetNewSkillTypeBase();
             return View(NewSkillType);
         }
         [HttpPost]
-        public ActionResult AddSkillType(Rules_Skills_Type GatheredSkillType)
+        public ActionResult AddSkillType(Rules_Skills_Types GatheredSkillType)
         {
             if (ModelState.IsValid)
             {
@@ -125,11 +125,11 @@ namespace BB2020MVC.Controllers
         }
         public ActionResult EditSkillType(int ID)
         {
-            Rules_Skills_Type SelectedRule = _RulesRepository.GetSkillType(ID);
+            Rules_Skills_Types SelectedRule = _RulesRepository.GetSkillType(ID);
             return View(SelectedRule);
         }
         [HttpPost]
-        public ActionResult EditSkillType(Rules_Skills_Type GatheredRule)
+        public ActionResult EditSkillType(Rules_Skills_Types GatheredRule)
         {
             if (ModelState.IsValid)
             {
@@ -143,67 +143,59 @@ namespace BB2020MVC.Controllers
         }
         public ActionResult DeleteSkillType(int ID)
         {
-            Rules_Skills_Type SelectRules = _RulesRepository.GetSkillType(ID);
+            Rules_Skills_Types SelectRules = _RulesRepository.GetSkillType(ID);
             return View(SelectRules);
         }
         [HttpPost]
-        public ActionResult DeleteSkillType(Rules_Skills_Type SkillType)
+        public ActionResult DeleteSkillType(Rules_Skills_Types SkillType)
         {
-            _RulesRepository.DeleteSkillType(SkillType.ID);
+            _RulesRepository.DeleteSkillType(SkillType.STypeID);
             return RedirectToAction("AllSkillTypes");
         }
-        /// <summary>
-        /// Special Rules
-        /// </summary>
-        /// <returns></returns>
-        //List All Special rules
+
         public ActionResult AllSpecialRules()
         {
-            IList<Rules_SpecialRule> SpecialRulesList = _RulesRepository.GetAllSpecialRules();
+            IList<Rules_SpecialRules> SpecialRulesList = _RulesRepository.GetAllSpecialRules();
 
             return View(SpecialRulesList);
         }
 
-        //Add Special Rule
+
         public ActionResult AddSpecialRule()
         {
-            return View();
+
+            var NewSR = _RulesRepository.GetNewSpecialRuleBase();
+            return View(NewSR);
         }
         [HttpPost]
+        public ActionResult AddSpecialRule(Rules_SpecialRules SpecialRule) {
 
-        public ActionResult AddSpecialRule(Rules_SpecialRule SpecialRule) {
-            if (ModelState.IsValid)
-            {
-                _RulesRepository.AddSpecialRule(SpecialRule);
-                return RedirectToAction("AllSpecialRules");
-            }
-            else
-            {
-                return View(SpecialRule);
-            }
+            _RulesRepository.AddSpecialRule(SpecialRule);
+            return RedirectToAction("AllSpecialRules");
+
         }
 
 
-        ///Delete Special Rule
+  
         public ActionResult DeleteSpecialRule(int ID)
         {
-            Rules_SpecialRule SpecialRule = _RulesRepository.GetSpecialRule(ID);
+            Rules_SpecialRules SpecialRule = _RulesRepository.GetSpecialRule(ID);
             return View(SpecialRule);
         }
         [HttpPost]
-        public ActionResult DeleteSpecialRule(Rules_SpecialRule SpecialRule)
+        public ActionResult DeleteSpecialRule(Rules_SpecialRules SpecialRule)
         {
 
-            _RulesRepository.DeleteSpecialRule(SpecialRule.ID);
+            _RulesRepository.DeleteSpecialRule(SpecialRule.SRID);
             return RedirectToAction("AllSpecialRules");
         }
         public ActionResult EditSpecialRule(int ID)
         {
-            Rules_SpecialRule SpecialRule = _RulesRepository.GetSpecialRule(ID);
+            Rules_SpecialRules SpecialRule = _RulesRepository.GetSpecialRule(ID);
             return View(SpecialRule);
         }
         [HttpPost]
-        public ActionResult EditSpecialRule(Rules_SpecialRule SpecialRule)
+        public ActionResult EditSpecialRule(Rules_SpecialRules SpecialRule)
         {
             if (ModelState.IsValid)
             {
@@ -215,5 +207,95 @@ namespace BB2020MVC.Controllers
                 return View(SpecialRule);
             }
         }
+
+        
+        public ActionResult AllInjuryTypes()
+        {
+            IList<Rules_InjuryTypes> AllInjuryTypes = _RulesRepository.GetAllInjuryTypes();
+            return View(AllInjuryTypes);
+        }
+        public ActionResult AddInjuryType()
+        {
+            Rules_InjuryTypes InjuryType = _RulesRepository.GetNewInjuryTypesBase();
+            return View(InjuryType);
+        }
+        [HttpPost]
+        public ActionResult AddInjuryType(Rules_InjuryTypes InjuryType)
+        {
+            if (ModelState.IsValid)
+            {
+                _RulesRepository.AddInjuryType(InjuryType);
+                return RedirectToAction("AllInjuryTypes");
+            }
+            else
+            {
+                return View(InjuryType);
+            }
+        }
+        public ActionResult DeleteInjuryType(int ID)
+        {
+            Rules_InjuryTypes InjuryType = _RulesRepository.GetInjuryType(ID);
+            return View(InjuryType);
+        }
+        [HttpPost]
+        public ActionResult DeleteInjuryType(Rules_InjuryTypes Injury)
+        {
+            _RulesRepository.DeleteInjuryType(Injury.InjuryID);
+            return RedirectToAction("AllInjuryTypes");
+        }
+        //TODO: TEST all below
+        public ActionResult ViewForbiddenSkills(int SkillID)
+        {
+            var SelectedSkill = _RulesRepository.GetSkill(SkillID);
+
+            FSkillsVM Model = new FSkillsVM()
+            {
+                Skill = SelectedSkill,
+                SkillList = _RulesRepository.GetAllSkills(),
+                FSkillList = _RulesRepository.GetFSkillListforSkill(SelectedSkill.SkillID)
+            };
+            return View(Model);
+        }
+
+        public ActionResult AddForbiddenSkill(int SkillID)
+        {
+            AddFSkillVM Model = new AddFSkillVM()
+            {
+                FSkill = _RulesRepository.GetNewFSkillBase(SkillID),
+                Skill = _RulesRepository.GetSkill(SkillID),
+                List = _RulesRepository.CreateFSkillList(SkillID)
+            };
+
+            return View(Model);
+            
+        }
+        [HttpPost]
+        public ActionResult AddForbiddenSkill(AddFSkillVM Model)
+        {
+            _RulesRepository.AddForbiddenSkill(Model.FSkill);
+            return RedirectToAction("ViewForbiddenSkills", new { Model.Skill.SkillID });
+        }
+        public ActionResult DeleteForbiddenSkill(int FSKillID)
+        {
+            var FSkill = _RulesRepository.GetFSkillBase(FSKillID);
+
+
+            DeleteFSkillVM Model = new DeleteFSkillVM()
+            {
+                Skill = _RulesRepository.GetSkill(FSkill.SkillID),
+                FSkillDetail = FSkill,
+                FSkill = _RulesRepository.GetSkill(FSkill.FSkillID)
+            };
+            return View(Model);           
+        }
+        [HttpPost]
+        public ActionResult DeleteForbiddenSkill(DeleteFSkillVM Model)
+        {
+            
+            _RulesRepository.DeleteForbiddenSkill(Model.FSkillDetail.ForbiddenID);
+            return RedirectToAction("ViewForbiddenSkills", new { Model.Skill.SkillID });
+        }
+
+        
     }
 }

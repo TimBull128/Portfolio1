@@ -11,16 +11,16 @@ namespace BB2020MVC.Models
 
         public void RaceRepository()
         {
-            _DataContext = new RaceSQLModelDataContext();
+            _DataContext = new BB2020Entities();
         }
 
         private int GetNewPlayerID()
         {
-            int PlayerID = 0;
-            IList<Races_Player> List = GetAllPlayers();
+            int PlayerID = 1;
+            IList<Races_Players> List = GetAllRacePlayers();
             foreach (var item in List)
             {
-                if (PlayerID != item.ID)
+                if (PlayerID != item.PlayerID)
                 {
                     break;
                 }
@@ -30,14 +30,14 @@ namespace BB2020MVC.Models
         }
         private int GetNewSkillSelectID()
         {
-            int ID = 0;
-            IList<Races_Players_Skill> List =
+            int ID = 1;
+            IList<Races_Players_Skills> List =
                 (from SkillSelect in _DataContext.Races_Players_Skills
                  select SkillSelect).ToList();
 
             foreach (var item in List)
             {
-                if (ID != item.ID)
+                if (ID != item.PSkillID)
                 {
                     break;
                 }
@@ -48,7 +48,7 @@ namespace BB2020MVC.Models
         private int GetNewRaceID()
         {
             IList<RaceNames> List = GetRaceNames();
-            int ID = 0;
+            int ID = 1;
             foreach (var item in List)
             {
                 if (ID != item.ID)
@@ -63,11 +63,11 @@ namespace BB2020MVC.Models
         }
         private int GetNewSkillTypeID()
         {
-            IList<Races_Players_SkillType> List = GetAllPlayerSkillTypes();
-            int ID = 0;
-            foreach (var item in List)
+ 
+            int ID = 1;
+            foreach (var item in GetAllPlayerSkillTypes())
             {
-                if (ID != item.ID)
+                if (ID != item.PSkillTypeID)
                 {
                     break;
                 }
@@ -76,321 +76,449 @@ namespace BB2020MVC.Models
 
             return ID;
         }
+        private int GetNewSRID()
+        {
+            var List = GetAllRacesSpecialRules();
+            int ID = 1;
+            foreach(var item in List)
+            {
+                if (ID != item.RSRID)
+                {
+                    break;
+                }
+                ID++;
+            }
+            return ID;
+        }
+
 
         public Race GetNewRaceBase()
         {
-            Race NewRace = new Race()
+            return new Race()
             {
-                ID = GetNewRaceID(),
+                RaceID = GetNewRaceID(),
 
                 Name = "",
                 Apothecary = false,
                 RerollCost = 0,
-                SRID1 = -1,
-                SRID2 = -1,
-                SRID3 = -1,
 
-            };
-            return NewRace;
+            }; ;
         }
-        public Races_Player GetNewPlayerBase(int RaceID)
+        public Races_Players GetNewPlayerBase(int RaceID)
         {
-            Races_Player Player = new Races_Player()
+            Races_Players Player = new Races_Players()
             {
-                ID = GetNewPlayerID(),
+                PlayerID = GetNewPlayerID(),
                 Name = "",
                 AG = 6,
                 AV = 1,
                 MA = 1,
                 PA = 7,
-                STRENGTH = 1,
+                ST= 1,
                 Cost = 0,
                 RaceID = RaceID
             };
             return Player;
         }
-        public Races_Players_Skill GetNewSkillBase(int PlayerID)
+        public Races_Players_Skills GetNewSkillBase(int PlayerID)
         {
-            Races_Players_Skill PlayerSkill = new Races_Players_Skill()
+            Races_Players_Skills PlayerSkill = new Races_Players_Skills()
             {
-                ID = GetNewSkillSelectID(),
+                PSkillID = GetNewSkillSelectID(),
                 PlayerID = PlayerID,
 
             };
             return PlayerSkill;
         }
-        public Races_Players_SkillType GetNewPlayerSkillTypeBase(int PlayerID)
+        public Races_Players_SkillTypes GetNewPlayerSkillTypeBase(int PlayerID)
         {
-            Races_Players_SkillType NewSkillType = new Races_Players_SkillType()
+            return new Races_Players_SkillTypes
             {
-                ID = GetNewSkillTypeID(),
+                PSkillTypeID = GetNewSkillTypeID(),
                 PlayerID = PlayerID,
-                TypeID = -1
-
+                STypeID = 0,
+                Single = false
             };
-            return NewSkillType;
         }
+        public Races_SpecialRules GetNewRaceSpecialRuleBase(int IRaceID)
+        {
+            return new Races_SpecialRules (){ 
+                RSRID = GetNewSRID(), 
+                RaceID = IRaceID, 
+                SRID = 0 };
+        }
+        
 
-        public Race GetRaceBase(int ID)
+
+        
+        public Races_Players_Skills GetPlayerSkillBase(int ID)
         {
-            Race SelectedRace =
-                (from RaceData in _DataContext.Races
-                 where RaceData.ID == ID
-                 select RaceData).First();
-            return SelectedRace;
-        }
-        public Races_Player GetPlayerBase(int ID)
-        {
-            Races_Player SelectedPlayer =
-                (from PlayerData in _DataContext.Races_Players
-                 where PlayerData.ID == ID
-                 select PlayerData).First();
-            return SelectedPlayer;
-        }
-        public Races_Players_Skill GetPlayerSkillBase(int ID)
-        {
-            Races_Players_Skill PlayerSkill =
-                (from SkillData in _DataContext.Races_Players_Skills
-                 where SkillData.ID == ID
+            Races_Players_Skills PlayerSkill =
+                (from SkillData in GetAllPlayerSkills()
+                 where SkillData.PSkillID == ID
                  select SkillData).First();
             return PlayerSkill;
         }
-        public Races_Players_SkillType GetPlayerSkillTypeBase(int ID)
+        public Races_Players_SkillTypes GetPlayerSkillTypeBase(int ID)
         {
-            Races_Players_SkillType STResult =
+            Races_Players_SkillTypes STResult =
                 (from item in _DataContext.Races_Players_SkillTypes
-                 where item.ID == ID
+                 where item.PSkillTypeID == ID
                  select item).First();
             return STResult;
         }
-        
-        public IList<Races_Player> GetAllPlayers()
+        public Races_SpecialRules GetSpecialRulesBase(int ID)
         {
-            IList<Races_Player> Result =
-                (from PQ in _DataContext.Races_Players
-                 select PQ).ToList();
-            return Result;
-        }
-        public IList<Races_Players_Skill> GetAllPlayerSkills()
-        {
-            IList<Races_Players_Skill> PSQuery =
-                (from PSQ in _DataContext.Races_Players_Skills
-                 select PSQ).ToList();
-            return PSQuery;
-        }
-        public IList<Races_Players_SkillType> GetAllPlayerSkillTypes()
-        {
-            var SkillTypesQuery =
-                (from SkillTypes in _DataContext.Races_Players_SkillTypes
-                 select SkillTypes).ToList();
-            return SkillTypesQuery;
+            return (from SR in _DataContext.Races_SpecialRules
+                    where SR.RSRID == ID
+                    select SR).First();
         }
 
-        
+
+
+        private IList<Races_SpecialRules> GetAllRacesSpecialRules()
+        {
+            return (from SpecialRule in _DataContext.Races_SpecialRules
+                    select SpecialRule).ToList();
+        }
+        public IList<Races_Players_Skills> GetPlayerSkillsByPlayerID(int PlayerID)
+        {
+            return (from item in _DataContext.Races_Players_Skills
+                    where item.PlayerID == PlayerID
+                    select item).ToList() ;
+        }
+
+
+
 
 
         public void AddRace(Race NewRace)
         {
-            _DataContext.Races.InsertOnSubmit(NewRace);
-            _DataContext.SubmitChanges();
+            //Add the Race to the Database
+            _DataContext.Races.Add(NewRace);
+            this.SaveChanges();
+            //Add 3 Special Rules of Rule "None"
+            for (int i = 1; i <= 3; i++)
+            {
+                _DataContext.Races_SpecialRules.Add(
+                    new Races_SpecialRules() { RaceID = NewRace.RaceID, SRID = 0, RSRID = GetNewSRID() }
+                    );
+                this.SaveChanges();
+            }
+            //Save all changes
+            this.SaveChanges();
+        }
+        public void AddPlayer(Races_Players Player)
+        {
+            _DataContext.Races_Players.Add(Player);
+            this.SaveChanges();
+        }
+        public void AddPlayerSkill(Races_Players_Skills Skill)
+        {
+            _DataContext.Races_Players_Skills.Add(Skill);
+            this.SaveChanges();
+        }
+        public void AddPlayerSkillType(Races_Players_SkillTypes SkillType)
+        {
+            _DataContext.Races_Players_SkillTypes.Add(SkillType);
+            this.SaveChanges();
+        }
 
-        }
-        public void AddPlayer(Races_Player Player)
-        {
-            _DataContext.Races_Players.InsertOnSubmit(Player);
-            _DataContext.SubmitChanges();
-        }
-        public void AddPlayerSkill(Races_Players_Skill Skill)
-        {
-            _DataContext.Races_Players_Skills.InsertOnSubmit(Skill);
-            _DataContext.SubmitChanges();
-        }
-        public void AddPlayerSkillType(Races_Players_SkillType SkillType)
-        {
-            _DataContext.Races_Players_SkillTypes.InsertOnSubmit(SkillType);
-            _DataContext.SubmitChanges();
-        }
+
 
         public void EditRace(Race RaceEdit)
         {
             Race StoredRace =
                 (from RaceData in _DataContext.Races
-                 where RaceData.ID == RaceEdit.ID
+                 where RaceData.RaceID == RaceEdit.RaceID
                  select RaceData).First();
 
-            StoredRace.Apothecary = RaceEdit.Apothecary;
-            StoredRace.Name = RaceEdit.Name;
-            StoredRace.RerollCost = RaceEdit.RerollCost;
-            StoredRace.SRID1 = RaceEdit.SRID1;
-            StoredRace.SRID2 = RaceEdit.SRID2;
-            StoredRace.SRID3 = RaceEdit.SRID3;
-            _DataContext.SubmitChanges();
-
-        }
-        public void EditPlayer(Races_Player Player)
-        {
-            Races_Player StoredPlayer =
-                (from PlayerData in _DataContext.Races_Players
-                 where PlayerData.ID == Player.ID
-                 select PlayerData).First();
-
-            StoredPlayer.Name = Player.Name;
-            StoredPlayer.MA = Player.MA;
-            StoredPlayer.PA = Player.PA;
-            StoredPlayer.STRENGTH = Player.STRENGTH;
-            StoredPlayer.Cost = Player.Cost;
-            StoredPlayer.AG = Player.AG;
-            StoredPlayer.AV = Player.AV;
-            _DataContext.SubmitChanges();
-        }
-        public void EditPlayerSkillType(Races_Players_SkillType SkillType)
-        {
-            var SelectedPlayerSkillType = GetPlayerSkillTypeBase(SkillType.ID);
-            SelectedPlayerSkillType.TypeID = SkillType.TypeID;
-            SelectedPlayerSkillType.Single = SkillType.Single;
-            _DataContext.SubmitChanges();
-        }
-
-        public void DelRace(int RaceID)
-        {
-            var RaceQuery =
-                this.GetRaceBase(RaceID);
-
-            var PlayerQuery = GetPlayersByRaceID(RaceID);
-
-            foreach (var PQ in PlayerQuery)
+            bool Changed = false;
+            if(StoredRace.Apothecary != RaceEdit.Apothecary)
             {
-                this.DelPlayer(PQ.ID);
+                StoredRace.Apothecary = RaceEdit.Apothecary;
+                Changed = true;
+            }
+            if(StoredRace.Name != RaceEdit.Name)
+            {
+                StoredRace.Name = RaceEdit.Name;
+                Changed = true;
+            }
+            if(StoredRace.RerollCost != RaceEdit.RerollCost)
+            {
+                StoredRace.RerollCost = RaceEdit.RerollCost;
+                Changed = true;
+            }
+            if (Changed) { this.SaveChanges(); }
+
+
+        }
+        public void EditPlayer(Races_Players Player)
+        {
+            bool Changed = false;
+            Races_Players StoredPlayer =
+                (from PlayerData in _DataContext.Races_Players
+                 where PlayerData.PlayerID == Player.PlayerID
+                 select PlayerData).First();
+            if(StoredPlayer.Name != Player.Name)
+            {
+                StoredPlayer.Name = Player.Name;
+                Changed = true;
+            }
+            if(StoredPlayer.MA != Player.MA)
+            {
+                StoredPlayer.MA = Player.MA;
+                Changed = true;
+            }
+            if(StoredPlayer.PA != Player.PA)
+            {
+                StoredPlayer.PA = Player.PA;
+                Changed = true;
+            }
+            if (StoredPlayer.ST != Player.ST)
+            {
+                StoredPlayer.ST = Player.ST;
+                Changed = true;
+            }
+            if (StoredPlayer.Cost != Player.Cost)
+            {
+                StoredPlayer.Cost = Player.Cost;
+                Changed = true;
+            }
+            if (StoredPlayer.AG != Player.AG)
+            {
+                StoredPlayer.AG = Player.AG;
+                Changed = true;
+            }
+
+            if (StoredPlayer.AV != Player.AV)
+            {
+                StoredPlayer.AV = Player.AV;
+                Changed = true;
+            }
+            if (Changed)
+            {
+                this.SaveChanges();
+            }
+
+        }
+        public void EditPlayerSkillType(Races_Players_SkillTypes SkillType)
+        {
+            bool Changed = false;
+            var SelectedPlayerSkillType = GetPlayerSkillTypeBase(SkillType.STypeID);
+            if(SelectedPlayerSkillType.STypeID == SkillType.STypeID)
+            {
+                SelectedPlayerSkillType.STypeID = SkillType.STypeID;
+                Changed = true;
+            }
+            
+            if(SelectedPlayerSkillType.Single = SkillType.Single)
+            {
+                SelectedPlayerSkillType.Single = SkillType.Single;
+                Changed = true;
+            }
+            if (Changed)
+            {
+                this.SaveChanges();
+            }    
+
+            return;
+        }
+        public void EditRaceSpecialRule(Races_SpecialRules SR)
+        {
+            int RSRID = SR.RSRID;
+            Races_SpecialRules SRQ = (from SQ in _DataContext.Races_SpecialRules
+                       where SQ.RSRID == RSRID
+                       select SQ).First();
+            if(SRQ.SRID != SR.SRID)
+            {
+                SRQ.SRID = SR.SRID;
+                this.SaveChanges();
             };
 
-            _DataContext.Races.DeleteOnSubmit(RaceQuery);
-            _DataContext.SubmitChanges();
-        }
-        public void DeletePlayerSkill(int SkillID)
-        {
-            Races_Players_Skill SkillSelected = this.GetPlayerSkillBase(SkillID);
 
-            _DataContext.Races_Players_Skills.DeleteOnSubmit(SkillSelected);
-            _DataContext.SubmitChanges();
+        }
+
+
+        public void DeleteRace(int RaceID)
+        {
+
+            
+
+            foreach (var PQ in GetPlayersByRaceID(RaceID))
+            {
+                this.DelPlayer(PQ.PlayerID);
+            };
+            foreach(var SQ in GetSpecialRulesByRaceID(RaceID))
+            {
+                DelRaceSpecialRule(SQ.RSRID);
+            }
+            var RaceQuery = this.GetRaceBase(RaceID);
+            _DataContext.Races.Remove(RaceQuery);
+            this.SaveChanges();
+        }
+        public void DeletePlayerSkill(int PSkillID)
+        {
+            var SkillSelected = GetPlayerSkillBase(PSkillID);
+            _DataContext.Races_Players_Skills.Remove(SkillSelected);
+            this.SaveChanges();
         }
         public void DelPlayer(int PlayerID)
         {
-            var PlayerQuery = this.GetPlayerBase(PlayerID);
-
-            var SkillQuery = GetPlayerSkillsbyPlayerID(PlayerID);
-
-
-            foreach (var Skill in SkillQuery)
+            var Player = GetPlayerBase(PlayerID);
+            var PlayerSkills = GetPlayerSkillsbyPlayerID(PlayerID);
+            foreach(var item in PlayerSkills)
             {
-                this.DeletePlayerSkill(Skill.ID);
+                DeletePlayerSkill(item.PSkillID);
             }
+            var PlayerSkillTypes = GetPlayerSkillTypes(PlayerID);
+            foreach(var item in PlayerSkillTypes)
+            {
+                DelPlayerSkillType(item.PSkillTypeID);
+            }
+            _DataContext.Races_Players.Remove(Player);
 
-            _DataContext.Races_Players.DeleteOnSubmit(PlayerQuery);
-            _DataContext.SubmitChanges();
         }
         public void DelPlayerSkillType(int SkillTypeID)
         {
             var SelectedSkillType = GetPlayerSkillTypeBase(SkillTypeID);
-            _DataContext.Races_Players_SkillTypes.DeleteOnSubmit(SelectedSkillType);
+            _DataContext.Races_Players_SkillTypes.Remove(SelectedSkillType);
+            this.SaveChanges();
         }
-
-        public IList<SelectListItem> SelectListMA(int MA = -1)
+        public void DelRaceSpecialRule(int RSRID)
         {
-
-            return CreateStatSelectList(StatType.Other, 1, 9, MA);
+            _DataContext.Races_SpecialRules.Remove(GetSpecialRulesBase(RSRID));
+            this.SaveChanges();
+                
         }
-        public IList<SelectListItem> SelectListST(int ST = -1)
+        public SelectList SelectListMA()
         {
-            return CreateStatSelectList(StatType.Other, 1, 8, ST);
-        }
-        public IList<SelectListItem> SelectListAG(int AG = -1)
-        {
-            return CreateStatSelectList(StatType.Addition, 1, 6, AG);
-
-        }
-        public IList<SelectListItem> SelectListPA(int PA = -1)
-        {
-            return CreateStatSelectList(StatType.PA, 1, 7, PA);
-        }
-        public IList<SelectListItem> SelectListAV(int AV = -1)
-        {
-            return CreateStatSelectList(StatType.Addition, 3, 11, AV);
-        }
-        private IList<SelectListItem> CreateStatSelectList(StatType Type, int min, int max, int SelectedValue)
-        {
-            SelectListItem ThisSelectListItem = new SelectListItem();
-            IList<SelectListItem> SelectListItems = new List<SelectListItem>();
-
-            for (int Counter = min; Counter <= max; Counter++)
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            for(int i = 1; i <=9; i++)
             {
-
-                switch (Type)
+                Item = new SelectListItem()
                 {
-                    case StatType.PA:
-                        ThisSelectListItem =
-                            new SelectListItem()
-                            {
-                                Text = (Counter == 7 ? "-" : Counter.ToString() + "+"),
-                                Value = ("-1"),
-                                Selected = (SelectedValue == -1)
-                            };
-                        break;
-                    case StatType.Addition:
-                        ThisSelectListItem =
-                            new SelectListItem()
-                            {
-                                Text = (Counter.ToString() + "+"),
-                                Value = (Counter.ToString()),
-                                Selected = (Counter == SelectedValue)
-                            };
-                        break;
-                    case StatType.Other:
-                        ThisSelectListItem =
-                            new SelectListItem()
-                            {
-                                Text = (Counter.ToString()),
-                                Value = (Counter.ToString()),
-                                Selected = (Counter == SelectedValue)
-                            };
-                        break;
-                }
-                SelectListItems.Add(ThisSelectListItem);
+                    Value = i.ToString(),
+                    Text = i.ToString()
+                };
+                List.Add(Item);
             }
-            if (Type == StatType.Other)
-            {
-                return SelectListItems;
-            }
-            else
-            {
-                SelectListItems.Reverse();
-                return SelectListItems;
-            }
+            
+            return new SelectList(List, "Value", "Text");
         }
-        public IList<SelectListItem> CreateSelectListPlayerSkills(int PlayerID)
+
+
+        public SelectList SelectListST()
         {
-            IList<Races_Players_Skill> PlayerSkillsList = GetPlayerSkillsbyPlayerID(PlayerID);
-            Rules_Skills_List SelectedSkill;
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            for ( int i = 1; i<=8; i++)
+            {
+                Item = new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = i.ToString(),
+
+                };
+                List.Add(Item);
+            }
+            return new SelectList(List, "Value", "Text");
+        }
+        public SelectList SelectListAG()
+        {
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            for (int i = 6; i>=1; i--)
+            {
+                Item = new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = i.ToString() + "+",
+
+                };
+                List.Add(Item);
+            }
+            return new SelectList( List, "Value", "Text");
+
+        }
+        
+        public SelectList SelectListPA()
+        {
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            for(int i = 7; i >= 1; i--)
+            {
+                Item = new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = (i==7)? "-":i.ToString() + "+"
+
+                };
+                List.Add(Item);
+            }
+            return new SelectList(List, "Value","Text");
+
+        }
+        public SelectList SelectListAV()
+        {
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            for(int i = 3; i<=11; i++)
+            {
+                Item = new SelectListItem
+                {
+                    Value = i.ToString(),
+                    Text = i.ToString() + "+"
+                };
+                List.Add(Item);
+            }
+            return new SelectList(List, "Value","Text");
+        }
+ 
+        public SelectList CreateSelectListPlayerSkills(int PlayerID)
+        {
+            IList<Races_Players_Skills> PlayerSkillsList = GetPlayerSkillsbyPlayerID(PlayerID);
             IList<SelectListItem> ResultSelectList = new List<SelectListItem>();
-            SelectListItem SelectItem;
+
             foreach(var item in PlayerSkillsList)
             {
-                SelectedSkill = GetSkill((int)item.SkillID);
-                SelectItem = new SelectListItem { Value = SelectedSkill.ID.ToString(), Text = SelectedSkill.Name };
+                Rules_Skills_List SelectedSkill = GetSkill((int)item.SkillID);
+                ResultSelectList.Add(new SelectListItem { Value = SelectedSkill.SkillID.ToString(), Text = SelectedSkill.Name });
                 
             }
-            SelectItem = new SelectListItem { Value = "-1", Text = "-" };
-            ResultSelectList.Add(SelectItem);
-            return ResultSelectList;
+            ResultSelectList.Add( new SelectListItem { Value = "-1", Text = "-" });
+
+            return new SelectList(ResultSelectList, "value", "Text");
 
         }
+        public SelectList CreateSelectListSpecialRules()
+        {
+            IList<SelectListItem> SelectList = new List<SelectListItem>();
 
+            foreach(var item in GetAllSpecialRules())
+            {
+                SelectList.Add(new SelectListItem { Value = item.SRID.ToString(), Text = item.Name });
+            }
+
+            return new SelectList(SelectList, "Value","Text");
+        }
+        public SelectList SLSkills()
+        {
+            IList<SelectListItem> SelectList = new List<SelectListItem>();
+            foreach(var Item in GetAllSkills())
+            {
+                SelectList.Add(new SelectListItem { Value = Item.SkillID.ToString(), Text = Item.Name.ToString() });
+            }
+            return new SelectList(SelectList, "Value", "Text");
+        }
 
         public int GetTopIDValue()
         {
             var Query =
                 from RaceData in _DataContext.Races
-                orderby RaceData.ID descending
-                select RaceData.ID;
+                orderby RaceData.RaceID descending
+                select RaceData.RaceID;
 
             return Query.First();
 
@@ -400,48 +528,10 @@ namespace BB2020MVC.Models
         {
             var Query =
                 from RaceData in _DataContext.Races
-                select RaceData.ID;
+                select RaceData.RaceID;
             return Query.First();
         }
 
-
-        public IList<Races_Players_Skill> GetPlayerSkillsbyPlayerID(int PlayerID)
-        {
-            IList<Races_Players_Skill> AllSkills = GetAllPlayerSkills();
-            IList<Races_Players_Skill> SkillList =
-                (from Skills in AllSkills
-                 where Skills.PlayerID == PlayerID
-                 select Skills).ToList();
-            return SkillList;
-        }
-        public IList<Races_Players_SkillType> GetPlayerSkillTypesbyPlayerID(int PlayerID)
-        {
-            IList<Races_Players_SkillType> AllSkillTypes = GetAllPlayerSkillTypes();
-            IList<Races_Players_SkillType> STList =
-                (from ST in AllSkillTypes
-                 where ST.PlayerID == PlayerID
-                 select ST).ToList();
-            return STList;
-        }
-        public IList<Races_Player> GetPlayersByRaceID(int RaceID)
-        {
-            IList<Races_Player> AllPlayers = GetAllPlayers();
-            IList<Races_Player> Players =
-                (from PlayerDetail in AllPlayers
-                 where PlayerDetail.RaceID == RaceID
-                 select PlayerDetail).ToList();
-            return Players;
-
-        }
-        public IList<Race> GetRacesbySpecialRule(int SRID)
-        {
-            var AllRaces = GetAllRaces();
-            var RaceQuery =
-                (from item in AllRaces
-                 where item.SRID1 == SRID || item.SRID2 == SRID || item.SRID3 == SRID
-                 select item).ToList();
-            return RaceQuery;
-        }
         public Race GetRacebyPlayerID(int PlayerID)
         {
             var SelectedPlayer = GetPlayerBase(PlayerID);
@@ -456,7 +546,7 @@ namespace BB2020MVC.Models
             var SkillList =
                 (from SQ in AllSkills
                  from PQ in PlayerSkillList
-                 where SQ.ID != PQ.SkillID
+                 where SQ.SkillID != PQ.SkillID
                  select SQ).ToList();
 
 
@@ -464,7 +554,7 @@ namespace BB2020MVC.Models
             foreach(var SQ in SkillList)
             {
                 SkillSelect.Add(
-                        new SelectListItem() { Text = SQ.Name, Value = SQ.ID.ToString() }
+                        new SelectListItem() { Text = SQ.Name, Value = SQ.SkillID.ToString() }
                     );
             }
 
@@ -477,7 +567,7 @@ namespace BB2020MVC.Models
             var PlayerQuery = GetPlayerBase(ID);
             var SkillsQuery = GetPlayerSkillsbyPlayerID(ID);
             var RaceQuery = GetRacebyPlayerID(ID);
-            var SkillTypeQuery = GetPlayerSkillTypesbyPlayerID(ID);
+            var SkillTypeQuery = GetPlayerSkillTypes(ID);
             var AllRulesSkillTypes = GetAllRulesSkillTypes();
 
             var SingleSkillTypes =
@@ -485,12 +575,12 @@ namespace BB2020MVC.Models
                     from item in SkillTypeQuery
                     from SkillType in AllRulesSkillTypes
                     where item.Single
-                    where SkillType.ID == item.TypeID
+                    where SkillType.STypeID == item.STypeID
                     select new CustomSkillType 
                     {
-                        ID = item.ID,
+                        ID = item.STypeID,
                         SkillTypeName = SkillType.Name,
-                        SkillTypeID = SkillType.ID
+                        SkillTypeID = SkillType.STypeID
                         
                     }
                  ).ToList();
@@ -499,12 +589,12 @@ namespace BB2020MVC.Models
                     from item in SkillTypeQuery
                     from SkillType in AllRulesSkillTypes
                     where !item.Single
-                    where SkillType.ID == item.TypeID
+                    where SkillType.STypeID == item.STypeID
                     select new CustomSkillType
                     {
-                        ID = item.ID,
+                        ID = item.STypeID,
                         SkillTypeName = SkillType.Name,
-                        SkillTypeID = SkillType.ID
+                        SkillTypeID = SkillType.STypeID
 
                     }
                  ).ToList();
@@ -512,16 +602,15 @@ namespace BB2020MVC.Models
             
             BaseTeamStruct ResultPlayer = new BaseTeamStruct()
             {
-                ID = PlayerQuery.ID,
+                ID = PlayerQuery.PlayerID,
                 MA = PlayerQuery.MA,
-                PA = PlayerQuery.PA,
+                PA = (int)PlayerQuery.PA,
                 Name = PlayerQuery.Name,
                 AG = PlayerQuery.AG,
                 AV = PlayerQuery.AV,
                 PlayerSkills = SkillsQuery.ToList(),
-                ST = (int)PlayerQuery.STRENGTH,
-                RaceID = RaceQuery.ID,
-                RaceName = RaceQuery.Name,
+                ST = (int)PlayerQuery.ST,
+                RaceID = RaceQuery.RaceID,
                 Cost = PlayerQuery.Cost,
                 SingleSkillTypes = SingleSkillTypes,
                 DoubleSkillTypes = DoubleSkillTypes
@@ -531,7 +620,8 @@ namespace BB2020MVC.Models
             return ResultPlayer;
         }
 
- 
-    }
+
+
+     }
 
 }

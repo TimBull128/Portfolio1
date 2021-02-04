@@ -1,0 +1,27 @@
+﻿@model BB2020MVC.Models.DeleteFSkillVM
+
+@{
+    ViewBag.Title = "Delete " + Model.FSkill.Name + " from " + Model.Skill.Name ;
+}
+
+<h2>DeleteForbiddenSkill</h2>
+
+<h3>Are you sure you want to delete this for @Model.Skill.Name?</h3>
+<div>
+    <h4>@Model.FSkill.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.FSkillDetail.ForbiddenID)
+        @Html.HiddenFor(model => model.FSkillDetail.FSkillID)
+        @Html.HiddenFor(model => model.FSkillDetail.SkillID)
+        @Html.HiddenFor(model => model.Skill)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

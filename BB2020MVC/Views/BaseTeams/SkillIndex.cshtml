@@ -1,0 +1,47 @@
+﻿@model BB2020MVC.Models.SkillIndexVM
+
+@{
+    ViewBag.Title = "Skills for " + Model.Race.Name + " " + Model.Player.Name;
+}
+
+<h2>Skills for @Model.Race.Name @Model.Player.Name</h2>
+<hr />
+<br />
+@Html.ActionLink("Add New Skill", "BAddSkill", new { ID = Model.Player.PlayerID })
+<table class="table table-bordered table-active">
+    <tr>
+        <td>Skill Name</td>
+        <td>Skill Description</td>
+        <td>Skill Type</td>
+        <td>Functions</td>
+    </tr>
+    @foreach (var PSkill in Model.PSkillList)
+    {
+        <tr>
+            @foreach (var Skill in Model.SkillList)
+            {
+
+                if (PSkill.SkillID == Skill.SkillID)
+                {
+                    <td>@Skill.Name</td>
+                    <td>@Skill.Description</td>
+                    foreach (var SType in Model.SkillTypes)
+                    {
+                        if (Skill.SkillTypeID == SType.STypeID)
+                        {
+                            <td>@SType.Name</td>
+                        }
+                    }
+
+                }
+                <td>@Html.ActionLink("Delete", "BDeleteSkill", new { ID = PSkill.PSkillID })</td>
+            }
+        </tr>
+    }
+</table>
+<br />
+<br />
+@Html.ActionLink("Add New Skill", "BAddSkill", new { ID = Model.Player.PlayerID })
+@Html.ActionLink("Back to Race", "ViewRace", new { ID = Model.Race.RaceID })
+
+

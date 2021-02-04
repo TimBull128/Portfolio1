@@ -1,0 +1,28 @@
+﻿@model BB2020MVC.Models.SkillAlterVM
+
+@{
+    ViewBag.Title = "Delete " + Model.RuleSkill.Name + " from " + Model.Race.Name + " " + Model.Player.Name;
+}
+
+<h2>Delete @Model.RuleSkill.Name from @Model.Race.Name @Model.Player.Name</h2>
+<hr />
+<h3>Are you sure you want to delete this skill from @Model.Player.Name?</h3>
+<div>
+    <h4>@Model.RuleSkill.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model=> model.PlayerSkill.PSkillID)
+        @Html.HiddenFor(model => model.PlayerSkill.PlayerID)
+        @Html.HiddenFor(model => model.PlayerSkill.SkillID)
+        @Html.HiddenFor(model => model.Player.PlayerID)
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Cancel", "SkillIndex", new { ID = Model.Player.PlayerID })
+        </div>
+    }
+</div>

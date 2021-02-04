@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BB2020MVC.Models.Races_Players_SkillTypes>
+
+@{
+    ViewBag.Title = "Skill Types for " + ViewBag.Player.Name ;
+}
+
+<h2>Skill Types for @ViewBag.Player.Name</h2>
+<hr />
+<p>
+    @Html.ActionLink("Add New", "BAddSkillType", new { ID = ViewBag.Player.ID })
+</p>
+<table class="table table-bordered table-responsive">
+    <tr>
+        <th>Skill Type</th>
+        <th>Single?</th>
+        <th>Functions</th>
+    </tr>
+
+    @foreach(var Item in Model)
+    {
+        <tr><td>
+            @foreach(var SType in ViewBag.SkillTypes)
+            {
+                @(SType.STypeID == Item.STypeID? SType.Name: "")
+            }
+            </td>
+            <td>@(Item.Single? "Yes":"No")</td>
+            <td>@Html.ActionLink("Delete", "BDeleteSkillType", new { ID = Item.PSkillTypeID })</td>
+        </tr>
+    }
+</table>
+<hr />
+@Html.ActionLink("Add New", "BAddSkillType", new { ID = ViewBag.Player.ID } ) <br/>
+@Html.ActionLink("Back to Race", "ViewRace", new { ID = ViewBag.Player.RaceID})

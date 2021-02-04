@@ -1,4 +1,4 @@
-﻿@model BB2020MVC.Models.Rules_Skills_List
+﻿@model BB2020MVC.Models.Rules_SpecialRules
 
 @{
     ViewBag.Title = "Delete " + Model.Name;
@@ -16,7 +16,7 @@
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        @Html.HiddenFor(model => model.ID)
+        @Html.HiddenFor(model => model.SRID)
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
 

@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_List>
 @{ViewBag.Title = "All Skills";}
 
-    <div><h2>All Races</h2></div>
+    <div><h2>All Skills</h2></div>
 
 
     <br />
-    <div id="Races">
+    <div id="Skills">
         <table class="table table-bordered table-responsive table-hover">
             <tr>
                 <th>Name</th>
@@ -23,7 +23,7 @@
                     <td>
                         @foreach(var SkillType in ViewBag.SkillTypes)
                         {
-                            if(Skill.SkillTypeID == SkillType.ID)
+                            if(Skill.SkillTypeID == SkillType.STypeID)
                             {
                                 @SkillType.Name
                             }
@@ -41,9 +41,9 @@
                         }
                     </td>
                     
-                    <td>@Html.ActionLink("Edit Skill", "EditSkill", new { id = Skill.ID })</td>
+                    <td>@Html.ActionLink("Edit Skill", "EditSkill", new { id = Skill.SkillID })</td>
                     
-                    <td>@Html.ActionLink("Delete Skill", "DeleteSkill", new { id = Skill.ID })</td>
+                    <td>@Html.ActionLink("Delete Skill", "DeleteSkill", new { id = Skill.SkillID })</td>
                 </tr>
             }
         </table>

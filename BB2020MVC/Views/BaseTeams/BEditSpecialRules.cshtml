@@ -1,0 +1,41 @@
+﻿@model BB2020MVC.Models.EditRaceSRVM
+
+@{
+    ViewBag.Title = "BEditSpecialRules";
+}
+
+<h2>BEdit Special Rules for @Model.Race.Name</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.EditorFor(model => model.RSR1.RSRID)
+    @Html.EditorFor(model => model.RSR1.RaceID)
+    @Html.EditorFor(model => model.RSR2.RSRID)
+    @Html.EditorFor(model => model.RSR2.RaceID)
+    @Html.EditorFor(model => model.RSR3.RSRID)
+    @Html.EditorFor(model => model.RSR3.RaceID)
+
+
+    <div class="form-horizontal">
+        <h4>EditRaceSRVM</h4>
+        <hr />
+        <table class="table table-bordered">
+            <tr><th>Special Rule</th></tr>
+
+            <tr><td>@Html.DropDownListFor(model => model.RSR1.SRID, Model.Select)</td></tr>
+            <tr><td>@Html.DropDownListFor(model => model.RSR2.SRID, Model.Select) </td></tr>
+            <tr><td>@Html.DropDownListFor(model => model.RSR3.SRID, Model.Select) </td></tr>
+        </table>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Race", "ViewRace", new { ID = ViewBag.RaceID })
+</div>

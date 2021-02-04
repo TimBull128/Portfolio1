@@ -1,0 +1,35 @@
+﻿@model BB2020MVC.Models.FSkillsVM
+
+@{
+    ViewBag.Title = "View Forbidden Skills for " + Model.Skill.Name;
+}
+
+<h2>View Forbidden Skills for @Model.Skill.Name</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddForbiddenSkill", new { SkillID = Model.Skill.SkillID })
+</p>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <td>Functions</td>
+    </tr>
+    @foreach(var FSkill in Model.FSkillList)
+    {
+        <tr>
+            @foreach(var Skill in Model.SkillList)
+            {
+                if(FSkill.FSkillID == Skill.SkillID)
+                {
+                    <td>@Skill.Name</td>
+                    <td>@Skill.Description</td>
+                    <td>@Html.ActionLink("Delete", "DeleteForbiddenSkill", new { ID = FSkill.ForbiddenID})</td>
+                }
+            }
+        </tr>
+    }
+
+
+
+</table>

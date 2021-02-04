@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace BB2020MVC.Models
 {
@@ -18,10 +19,10 @@ namespace BB2020MVC.Models
     /// </summary>
     public class BaseRaceStruct
     {
-        public int ID, RerollCost;
+        public int ID, RerollCost, Tier;
         public string Name;
         public bool Apoth;
-        public IList<Rules_SpecialRule> SpecialRules;
+        public IList<Rules_SpecialRules> SpecialRules;
         public IList<BaseTeamStruct> Team;
 
 
@@ -31,23 +32,7 @@ namespace BB2020MVC.Models
         public int ID, SkillTypeID;
         public string SkillTypeName;
     }
-    public class NewRaceStruct
-    {
-        public int ID, RerollCost;
-        public string Name;
-        public bool Apoth;
-        public int? SRID1, SRID2, SRID3;
-    }
-    public class NewPlayerStruct
-    {
-        public int ID, RaceID, MA, AG, AV, Cost;
-        public int? PA, STR;
-    }
-    public class NewPlayerSkillStruct
-    {
-        public int ID;
-        public int? PlayerID, SkillID;
-    }
+
 
     public class RaceNames
     {
@@ -56,10 +41,10 @@ namespace BB2020MVC.Models
     }
     public class BaseTeamStruct
     {
-        public int ID, MA, ST, AG, AV, Cost, RaceID;
-        public string Name, RaceName;
-        public int? PA;
-        public IList<Races_Players_Skill> PlayerSkills;
+        public int ID, MA, ST, AG, AV, Cost, MaxQTY, RaceID;
+        public string Name;
+        public int PA;
+        public IList<Races_Players_Skills> PlayerSkills;
         public IList<CustomSkillType> SingleSkillTypes;
         public IList<CustomSkillType> DoubleSkillTypes;
     }
@@ -77,5 +62,62 @@ namespace BB2020MVC.Models
         public int ID, RaceID;
         public string Name, RaceName;
 
+    }
+    public class SkillTypeSelects
+    { 
+        public string Type;
+        public IList<SelectListItem> SelectList;
+    }
+    public class PlayerMissing
+    {
+        public int PlayerID;
+        public bool MNG;
+    }
+    //--------------------------------------------------------------------------
+    //-------------------------ViewModels --------------------------------------
+    //--------------------------------------------------------------------------
+    //Naming convention - [NameOfScreen]VM
+    public class EditRaceSRVM
+    {
+        public Races_SpecialRules RSR1 { get; set; }
+        public Races_SpecialRules RSR2 { get; set; }
+        public Races_SpecialRules RSR3 { get; set; }
+        public Race Race { get; set; }
+        public SelectList Select { get; set; }
+    }
+    public class SkillIndexVM
+    {
+        public IList<Rules_Skills_Types> SkillTypes;
+        public IList<Rules_Skills_List> SkillList;
+        public IList<Races_Players_Skills> PSkillList;
+        public Race Race;
+        public Races_Players Player;
+        
+    }
+    public class SkillAlterVM
+    {
+        public Race Race { get; set; }
+        public Races_Players Player { get; set; } 
+        public Races_Players_Skills PlayerSkill { get; set; }
+        public Rules_Skills_List RuleSkill { get; set; }
+    }
+
+    public class FSkillsVM
+    {
+        public IList<Rules_Skills_FSkills> FSkillList;
+        public IList<Rules_Skills_List> SkillList;
+        public Rules_Skills_List Skill;
+    }
+    public class AddFSkillVM
+    {
+        public Rules_Skills_List Skill { get; set; }
+        public Rules_Skills_FSkills FSkill { get; set; }
+        public SelectList List;
+    }
+    public class DeleteFSkillVM
+    {
+        public Rules_Skills_List Skill { get; set; }
+        public Rules_Skills_List FSkill;
+        public Rules_Skills_FSkills FSkillDetail { get; set; }
     }
 }

@@ -1,140 +1,124 @@
 ﻿@model BB2020MVC.Models.BaseRaceStruct
 
-@{ 
-    ViewBag.Title = Model.Name;
+@{
+    ViewBag.Title = "View " + Model.Name;
 }
-    <div><h2>@Model.Name</h2></div>
 
+<h2>@Model.Name</h2>
 
-    <br />
-    <div id="Players">
-        <table class="table table-bordered table-responsive table-hover">
+<div>
+    <table class=" table table-active table-responsive">
+        <tr>
+            <th>Player Type</th>
+            <th>MaxQTY</th>
+            <th>MA</th>
+            <th>ST</th>
+            <th>AG</th>
+            <th>PA</th>
+            <th>AV</th>
+            <th>Skills</th>
+            <th>Cost</th>
+            <th>Single</th>
+            <th>Double</th>
+
+            <th>Functions</th>
+        </tr>
+        @foreach (var item in Model.Team)
+        {
             <tr>
-                <th>Type</th>
-                <th>MA</th>
-                <th>ST</th>
-                <th>AG</th>
-                <th>PA</th>
-                <th>AV</th>
-                <th>Skills</th>
-                <th>Cost</th>
-                <th>Functions</th>
-            </tr>
-            @foreach (var Player in Model.Team)
-            {
-                <tr>
-                    <td>
-                        @Player.Name
-                    </td>
-                    <td>@Player.MA</td>
-                    <td>@Player.ST</td>
-                    <td>@(Player.AG + "+")</td>
-                    
-                    
-                    <td>
-                        @if (Player.PA == 7 || Player.PA == null)
-                        {
-                            @("-")
-                        }
-                        else
-                        {
-                            @(Player.PA + "+") 
-
-                        }
-                    </td>
-                    <td>@Player.AV</td>
-                    <td>
-
-                        @foreach (var PlayerSkill in Player.PlayerSkills)
-                        {
-                            foreach(var Skills in ViewBag.SkillsList)
-                            {
-                                if(Skills.ID == PlayerSkill.SkillID)
-                                {
-                                    @Skills.Name;
-                                }
-                            }
-                                
-                        }
-                        
-
-                    </td>
-                    <td>@Player.Cost</td>
-                    <td>
-                        @Html.ActionLink("Edit Player", actionName: "EditPlayer", routeValues: new { ID = Player.ID }) <br/>
-                        @Html.ActionLink("Delete Player", actionName: "DeletePlayer", routeValues: new { ID = Player.ID })<br/>
-                        @Html.ActionLink("Add Skill", actionName: "AddSkill", routeValues: new { ID = Player.ID })<br/>
-                        @Html.ActionLink("Delete Skill", actionName: "SelectDeleteSkill", routeValues: new { ID = Player.ID })
-                    </td>
-                </tr>
-            }
-
-        </table>
-        <table class="table table-bordered">
-            <tr>
-                <th>Reroll Cost</th>
-                <td>@Model.RerollCost</td></tr>
-            <tr>
-                <th>Apothecary</th>
-                <td>@(Model.Apoth?"Yes":"No")
-                </td>
-            </tr>
-            <tr>
-                <th>Special Rules</th>
+                <td>@item.Name</td>
+                <td>@item.MaxQTY</td>
+                <td>@item.MA</td>
+                <td>@item.ST</td>
+                <td>@(item.AG+ "+") </td>
                 <td>
-                    
-
-                        @foreach (var SpecialRule in Model.SpecialRules)
+                @(item.PA == -1? "-": item.PA+"+")
+                </td>
+                <td>@(item.AV + "+")</td>
+                <td>
+                    @foreach(var Skill in item.PlayerSkills)
+                    {
+                        foreach(var RSkill in ViewBag.AllSkills)
                         {
-                            if(SpecialRule.ID != 19)
+                            if(Skill.SkillID == RSkill.SkillID)
                             {
-                                @(SpecialRule.Name + " | ")
+                                @(RSkill.Name + ", ")
                             }
                         }
-                        
-                    
+                    }
                 </td>
-                
+                <td>@item.Cost</td>
+                <td>
+                    @foreach(var Single in item.SingleSkillTypes)
+                    {
+                        @Single.SkillTypeName
+                    }
+                </td>
+                <td>
+                    @foreach(var Double in item.DoubleSkillTypes)
+                    {
+                        @Double.SkillTypeName
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Player", "EditPlayer", new {ID = item.ID })<br/>
+                    @Html.ActionLink("Delete Player", "BDeletePlayer", new { ID = item.ID})<br/>
+                    @Html.ActionLink("Edit Skill Types", "SkillTypesIndex", new { ID = item.ID})<br/>
+                    @Html.ActionLink("Edit Skills", "SkillIndex", new { ID = item.ID })
+                </td>
             </tr>
-        </table>
-    </div>
-    <br /><br />
-          <div id="AdditionalFunctions">
-              <h2>Additonal Functions</h2>
+        }
+        <tr>
+            <th>Reroll Cost</th>
+            <td>@Model.RerollCost</td>
+        </tr>
+        <tr>
+            <th>Special Rules</th>
+            <td>
+                @foreach (var SR in Model.SpecialRules)
+                {
+                    if (SR.SRID != 0)
+                    {
+                        @(SR.Name +", ");
+                    }
 
+                }
+            </td>
+        </tr>
+        <tr>
+            <th>Apothecary?</th>
+            <td>
+                @(Model.Apoth? "Yes": "No")
+            </td>
+        </tr>
+        <tr>
+            <th>Tier</th>
+            <td>@Model.Tier</td>
+        </tr>
+        
+    </table>
+</div>
 
-              <table class=" table table-borderless table-responsive table-hover">
-                  <tr>
-                      <td>
-                          @Html.ActionLink("To Race List", "Index")
-
-                      </td>
-
-
-                      @if (!ViewBag.MaxLimit)
-                      {
-                          <td>@Html.ActionLink("Next Race", "NextRace", new { ID = Model.ID })</td>
-                      }
-
-                      @if (!ViewBag.MinLimit)
-                      {
-                          <td>
-                              @Html.ActionLink("Previous Race", "PrevRace", new { ID = Model.ID })
-                          </td>
-                      }
-
-                      <td>@Html.ActionLink("Add Player", "AddPlayer", new { IRaceID = Model.ID })</td>
-                      <td>
-                          @Html.ActionLink("Edit this Race", "EditRace", new { ID = Model.ID })
-                      </td>
-                      <td>
-                          @Html.ActionLink("Delete this race", "DeleteRace", new { ID = Model.ID })
-                      </td>
-
-                      <td>
-                          @Html.ActionLink("View Rosters of this Type", "ViewRosters", new { ID = Model.ID })
-                      </td>
-                  </tr>
-
-              </table>
-          </div>
+<div>
+    <hr />
+    @Html.ActionLink("Delete Race", "DeleteRace", new { ID = Model.ID }) &nbsp;&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Edit Race Statistic Line", "EditRace", new { ID = Model.ID }) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Edit Special Rules", "BEditSpecialRules", new { ID = Model.ID }) &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Add Player", "AddPlayer", new { ID = Model.ID })
+    <br />
+    @if (!ViewBag.MinLimit)
+    {
+        @Html.ActionLink("Previous Race", "PrevRace", new { ID = Model.ID })
+    }
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    @if (!ViewBag.MinLimit && !ViewBag.MaxLimit)
+    {
+        @("|")
+    }
+    @if (!ViewBag.MaxLimit)
+    {
+        @Html.ActionLink("Next Race", "NextRace", new { ID = Model.ID })
+    }
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    @Html.ActionLink("Back to Index", "Index")
+</div>

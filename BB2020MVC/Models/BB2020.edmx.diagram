@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="339a6054e55f445ba1a8f04665e3b703" Name="Diagram1">
+        <EntityTypeShape EntityType="BB2020Model.Race" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Races_Players" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Races_Players_Skills" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Races_Players_SkillTypes" Width="1.5" PointX="5.375" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Races_SpecialRules" Width="1.5" PointX="2" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_InjuryTypes" Width="1.5" PointX="5.25" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_LvlType" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_Skills_FSkills" Width="1.5" PointX="10" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_Skills_List" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_Skills_Types" Width="1.5" PointX="7.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.Rules_SpecialRules" Width="1.5" PointX="7.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.User_Rosters" Width="1.5" PointX="1" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.User_Rosters_Injury" Width="1.5" PointX="3.125" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.User_Rosters_LvlTypes" Width="1.5" PointX="5.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.User_Rosters_Players" Width="1.5" PointX="3.125" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BB2020Model.User_Rosters_Skills" Width="1.5" PointX="9.75" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="BB2020Model.FK_Races_Players_Races" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_SpecialRules_Races" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Races" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_Players_Skills_Races_Players_Skills" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_Players_SkillTypes_Races_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Players_Races_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_Players_Skills_Rules_Skills_List" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_Players_SkillTypes_Rules_Skills_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Races_SpecialRules_Rules_SpecialRules" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Injury_Rules_InjuryTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_LvlTypes_Rules_LvlType" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Rules_Skills_FSkills_Rules_Skills_List" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Rules_Skills_FSkills_Rules_Skills_List1" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_Rules_Skills_List_Rules_Skills_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Skills_Rules_Skills_List" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Players_User_Rosters" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Injury_User_Rosters_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_LvlTypes_User_Rosters_Players" ManuallyRouted="false" />
+        <AssociationConnector Association="BB2020Model.FK_User_Rosters_Skills_User_Rosters_Players" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

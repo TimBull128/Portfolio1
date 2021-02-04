@@ -42,7 +42,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            @Html.HiddenFor(model => model.ID)
+            @Html.HiddenFor(model => model.SkillID)
             <input type="submit" value="Delete" class="btn btn-default" /> |
             @Html.ActionLink("Back to List", "AllSkills")
         </div>

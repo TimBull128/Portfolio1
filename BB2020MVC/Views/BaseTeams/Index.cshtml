@@ -1,35 +1,33 @@
-﻿
-@model IEnumerable<BB2020MVC.Models.RaceNames>
-@{ ViewBag.Title = "All Races"; }
+﻿@model IEnumerable<BB2020MVC.Models.RaceNames>
 
-<div><h2>All Races</h2></div>
+@{
+    ViewBag.Title = "Index";
+}
 
+<h2>All Races</h2>
 
-<br />
-<div id="Races">
-    <table class="table table-bordered table-responsive table-hover">
-        <tr>
-            <th>Name</th>
-            <th>Functions</th>
-        </tr>
-        @foreach (var Race in Model)
-        {
-            int RaceID = Race.ID;
-            <tr>
-                <td>@Race.Name</td>
-                <td>
-                    @Html.ActionLink("Edit Race Statistics", "EditRace", new { ID = RaceID })<br />
-                    @Html.ActionLink("View Race Statistics and Players", "ViewRace", new { ID = RaceID })<br />
-                    @Html.ActionLink("Delete Race", "DeleteRace", new { ID = RaceID })
-                </td>
-            </tr>
-        }
-    </table>
-</div>
-<br />
-<br />
-<div id="AdditionalFunctions">
-    <h2>Additonal Functions</h2>
-    @Html.ActionLink("Add New Race", "AddRace")<br />
-    @Html.ActionLink("View Rosters", "ViewRosters", "Rosters")
-</div>
+<p>
+    @Html.ActionLink("New Race", "AddRace")
+</p>
+<hr/>
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>@item.Name</td>
+        <td>
+            @Html.ActionLink("View", "ViewRace", new { ID = item.ID}) |
+            @Html.ActionLink("Delete", "DeleteRace", new { ID = item.ID})
+        </td>
+    </tr>
+}
+
+</table>
+<br/>
+<hr />
+<p>
+    @Html.ActionLink("New Race", "AddRace")
+</p>

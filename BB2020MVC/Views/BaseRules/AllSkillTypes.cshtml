@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_Type>
+﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_Types>
 
 <p>
     @Html.ActionLink("Create New", "AddSkillType")
@@ -6,9 +6,12 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Name
         </th>
-        <th></th>
+        <th>Description</th>
+        <th>
+            Functions
+        </th>
     </tr>
 
     @foreach (var item in Model)
@@ -18,8 +21,11 @@
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "EditSkillType", new { id = item.ID }) <br />
-                @Html.ActionLink("Delete", "DeleteSkillType", new { id = item.ID })
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditSkillType", new { id = item.STypeID }) <br />
+                @Html.ActionLink("Delete", "DeleteSkillType", new { id = item.STypeID })
             </td>
 
 
@@ -29,4 +35,4 @@
 
 </table>
 @Html.ActionLink("Create New", "AddSkillType")<br/>
-@Html.ActionLink("Back To Landing", actionName: "Index", controllerName: "BaseRules");
+@Html.ActionLink("Back To Landing", actionName: "Index", controllerName: "BaseRules")

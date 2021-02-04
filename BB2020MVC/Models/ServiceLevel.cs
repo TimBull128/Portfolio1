@@ -10,138 +10,142 @@ namespace BB2020MVC.Models
     public interface IBaseRepos
     {
 
+        IList<Races_Players> GetAllRacePlayers();
         IList<Rules_LvlType> GetAllLevelTypes();
         IList<RaceNames> GetRaceNames();
         IList<Race> GetAllRaces();
         IList<Rules_Skills_List> GetAllSkills();
         Rules_Skills_List GetSkill(int ID);
-        IList<Rules_Skills_Type> GetAllRulesSkillTypes();
-        IList<Rules_SpecialRule> GetAllSpecialRules();
-
+        IList<Rules_Skills_Types> GetAllRulesSkillTypes();
+        IList<Rules_SpecialRules> GetAllSpecialRules();
+        Races_Players GetPlayerBase(int ID);
+        Rules_LvlType GetLevelType(int ID);
+        Rules_Skills_Types GetSkillType(int ID);
+        IList<SelectListItem> CreateSelectListSkillTypes();
+        IList<SelectListItem> CreateSelectListSkills(int SelectedValue = -1);
+        IList<SelectListItem> CreateSelectListLevelTypes(int SelectedValue = -1);
+        IList<Races_Players_SkillTypes> GetPlayerSkillTypes(int ID);
+        Race GetRaceBase(int ID);
+        IList<Races_SpecialRules> GetSpecialRulesByRaceID(int RaceID);
+        BaseRaceStruct GetRace(int ID);
 
     }
     public interface IRacesRepos : IBaseRepos
     {
         Race GetNewRaceBase();
-        Races_Player GetNewPlayerBase(int RaceID);
-        Races_Players_Skill GetNewSkillBase(int PlayerID);
-        Races_Players_SkillType GetNewPlayerSkillTypeBase(int PlayerID);
+        Races_Players GetNewPlayerBase(int RaceID);
+        Races_Players_Skills GetNewSkillBase(int PlayerID);
+        Races_Players_SkillTypes GetNewPlayerSkillTypeBase(int PlayerID);
 
-        Race GetRaceBase(int ID);
-        Races_Player GetPlayerBase(int ID);
-        Races_Players_Skill GetPlayerSkillBase(int ID);
-        Races_Players_SkillType GetPlayerSkillTypeBase(int ID);
 
-        IList<Races_Player> GetAllPlayers();
-        IList<Races_Players_Skill> GetAllPlayerSkills();
-        IList<Races_Players_SkillType> GetAllPlayerSkillTypes();
+        Races_Players_Skills GetPlayerSkillBase(int ID);
+        Races_Players_SkillTypes GetPlayerSkillTypeBase(int ID);
+        Races_SpecialRules GetSpecialRulesBase(int ID);
+
+
+
+
+        IList<Races_Players_Skills> GetAllPlayerSkills();
+        IList<Races_Players_SkillTypes> GetAllPlayerSkillTypes();
+
 
         void AddRace(Race NewRace);
-        void AddPlayer(Races_Player Player);
-        void AddPlayerSkill(Races_Players_Skill Skill);
-        void AddPlayerSkillType(Races_Players_SkillType SkillType);
+        void AddPlayer(Races_Players Player);
+        void AddPlayerSkill(Races_Players_Skills Skill);
+        void AddPlayerSkillType(Races_Players_SkillTypes SkillType);
+
 
         void EditRace(Race RaceEdit);
-        void EditPlayer(Races_Player Player);
-        void EditPlayerSkillType(Races_Players_SkillType SkillType);
+        void EditPlayer(Races_Players Player);
+        void EditPlayerSkillType(Races_Players_SkillTypes SkillType);
 
+        void DeleteRace(int RaceID);
         void DeletePlayerSkill(int SkillID);
         void DelPlayer(int PlayerID);
         void DelPlayerSkillType(int SkillTypeID);
 
-        IList<SelectListItem> SelectListMA(int MA = -1);
-        IList<SelectListItem> SelectListST(int ST = -1);
-        IList<SelectListItem> SelectListAG(int AG = -1);
-        IList<SelectListItem> SelectListPA(int PA = -1);
-        IList<SelectListItem> SelectListAV(int AV = -1);
-        IList<SelectListItem> CreateSelectListPlayerSkills(int PlayerID);
+        SelectList SelectListMA();
+        SelectList SelectListST();
+        SelectList SelectListAG();
+        SelectList SelectListPA();
+        SelectList SelectListAV();
+        SelectList CreateSelectListPlayerSkills(int PlayerID);
+        SelectList CreateSelectListSpecialRules();
+        SelectList SLSkills();
+
+        void EditRaceSpecialRule(Races_SpecialRules SR);
 
         int GetTopIDValue();
         int GetLowIDValue();
 
-        IList<Races_Players_Skill> GetPlayerSkillsbyPlayerID(int PlayerID);
-        IList<Races_Players_SkillType> GetPlayerSkillTypesbyPlayerID(int PlayerID);
+        IList<Races_Players_Skills> GetPlayerSkillsbyPlayerID(int PlayerID);
+
         IList<Race> GetRacesbySpecialRule(int SRID);
         Race GetRacebyPlayerID(int PlayerID);
         IList<SelectListItem> GetValidSkills(int PlayerID);
         BaseTeamStruct GetPlayer(int ID);
+        
+
+
     }
     public interface IRulesRepos : IBaseRepos
     {
         Rules_LvlType GetNewLevelTypeBase();
         Rules_Skills_List GetNewSkillBase();
-        Rules_Skills_Type GetNewSkillTypeBase();
-        Rules_SpecialRule GetNewSpecialRuleBase();
-        
+        Rules_Skills_Types GetNewSkillTypeBase();
+        Rules_SpecialRules GetNewSpecialRuleBase();
+        Rules_InjuryTypes GetNewInjuryTypesBase();
+        Rules_Skills_FSkills GetNewFSkillBase(int SkillID);
+
+
 
         IList<Rules_Skills_List> GetSkillsByType(int TypeID);
 
-        IList<SelectListItem> CreateSelectListSkillTypes(int SelectedValue = -1);
-        IList<SelectListItem> CreateSelectListSkills(int SelectedValue = -1);
-        IList<SelectListItem> CreateSelectListLevelTypes(int SelectedValue = -1);
-        IList<SelectListItem> CreateSelectListSpecialRules(int SelectedValue = -1);
+
 
         void AddLevelType(Rules_LvlType LevelType);
-        void AddSkillType(Rules_Skills_Type Type);
+        void AddSkillType(Rules_Skills_Types Type);
         void AddSkill(Rules_Skills_List Skill);
-        void AddSpecialRule(Rules_SpecialRule SpecialRule);
+        void AddSpecialRule(Rules_SpecialRules SpecialRule);
+        void AddInjuryType(Rules_InjuryTypes InjuryType);
+        void AddForbiddenSkill(Rules_Skills_FSkills FSkill);
 
         void EditSkill(Rules_Skills_List Skill);
         void EditLevelType(Rules_LvlType LevelType);
-        void EditSpecialRule(Rules_SpecialRule SpecialRule);
-        void EditSkillType(Rules_Skills_Type Type);
+        void EditSpecialRule(Rules_SpecialRules SpecialRule);
+        void EditSkillType(Rules_Skills_Types Type);
 
         void DeleteLevelType(int ID);
         void DeleteSkill(int ID);
         void DeleteSpecialRule(int ID);
         void DeleteSkillType(int ID);
+        void DeleteInjuryType(int ID);
+        void DeleteForbiddenSkill(int ID);
 
-        Rules_LvlType GetLevelType(int ID);
-        Rules_SpecialRule GetSpecialRule(int ID);
-        Rules_Skills_Type GetSkillType(int ID);
+
+        Rules_SpecialRules GetSpecialRule(int ID);
+        Rules_Skills_FSkills GetFSkillBase(int FSkillID);
+        Rules_InjuryTypes GetInjuryType(int ID);
+
+        IList<Rules_Skills_FSkills> GetAllFSkills();
+        IList<Rules_InjuryTypes> GetAllInjuryTypes();
+        IList<Rules_Skills_FSkills> GetFSkillListforSkill(int ID);
+        SelectList CreateFSkillList(int SkillID);
 
     }
     public interface IRosterRepos : IBaseRepos
     {
-        User_Roster GetNewRosterBase();
-        User_Rosters_Skill GetNewRosterSkillBase(int PlayerID);
-        User_Rosters_Positional GetNewRosterPlayerBase(int RosterID);
-        User_Rosters_LvlType GetNewRosterLvlTypeBase(int PlayerID);
+        User_Rosters NewRoster(int RaceID);
 
-        User_Rosters_Skill GetRosterSkillBase(int ID);
-        User_Roster GetRosterBase(int ID);
-        User_Rosters_Positional GetPlayerBase(int PlayerID);
-        User_Rosters_LvlType GetLvlTypeBase(int ID);
 
-        IList<User_Rosters_LvlType> GetLvlTypesByPlayerID(int PlayerID);
-        IList<User_Rosters_Positional> GetPlayersByRosterID(int RosterID);
-        IList<User_Rosters_Skill> GetSkillsByPlayerID(int PlayerID);
-        IList<User_Roster> GetRostersByRace(int RaceID);
-        IList<User_Roster> GetRostersBySpecialRule(int SRID);
+        IList<User_Rosters> GetAllRosters();
 
-        IList<User_Roster> GetAllRosters();
-        IList<RosterNames> GetAllRosterNames();
-        IList<User_Rosters_Positional> GetAllRosterPlayers();
-        IList<User_Rosters_LvlType> GetAllLvlTypes();
-        IList<User_Rosters_Skill> GetAllRosterSkill();
 
-        void AddRoster(User_Roster Roster);
-        void EditRoster(User_Roster Roster);
-        void DeleteRoster(int ID);
+        SelectList SLRace();
 
-        void AddRosterPlayer(User_Rosters_Positional Player);
-        void EditRosterPlayer(User_Rosters_Positional Player);
-        void DeleteRosterPlayer(int ID);
+        void AddRoster(User_Rosters Roster);
 
-        void AddPlayerSkill(User_Rosters_Skill Skill);
-        void DeletePlayerSkill(int ID);
-
-        void AddLvlType(User_Rosters_LvlType LvlType);
-        void DeleteLvlType(int ID);
-
-        IList<SelectListItem> CreateValidSkillSelect(int PlayerID);
-        IList<SelectListItem> CreateLevelTypeSelect(int LevelSelectID = -1);
-        IList<SelectListItem> CreateSelectListRace(int SelectValue = -1);
+        User_Rosters GetRoster(int RosterID);
     }
     
 

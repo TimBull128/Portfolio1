@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BB2020MVC.Models.Rules_Skills_List>
+﻿@model IEnumerable<BB2020MVC.Models.Rules_SpecialRules>
 
 @{
     ViewBag.Title = "All Special Rules";
@@ -13,6 +13,7 @@
     <tr>
         <th>Name</th>
         <th>Description</th>
+        <th>Functions</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -20,11 +21,15 @@
         <td>@item.Name </td>
         <td>@item.Description</td>
         <td>
-
-            @Html.ActionLink("Edit", "EditSpecialRule", new { Id = item.ID }) |
-            @Html.ActionLink("Delete", "DeleteSpecialRule", new { Id = item.ID })
+            @Html.ActionLink("Edit Special Rule", "EditSpecialRule", new { id = item.SRID}) <br/>
+            @Html.ActionLink("Delete Special Rule", "DeleteSpecialRule", new { id = item.SRID })
+            
         </td>
     </tr>
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "AddSpecialRule")<br/>
+    @Html.ActionLink("Back to Landing", "Index")
+</p>

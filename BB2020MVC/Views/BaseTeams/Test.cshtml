@@ -1,0 +1,12 @@
+﻿@model IEnumerable<BB2020MVC.Models.Races_SpecialRules>
+@{
+
+    ViewBag.Title = "Test";
+}
+
+@foreach(var item in Model)
+{
+    @item.RSRID
+    @item.RaceID
+    @item.SRID
+}

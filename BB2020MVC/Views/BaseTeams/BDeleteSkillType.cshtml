@@ -1,0 +1,28 @@
+﻿@model BB2020MVC.Models.Races_Players_SkillTypes
+
+@{
+    ViewBag.Title = "Delete " + ViewBag.STName + " for " + ViewBag.Player.Name;
+}
+
+<h2>BDeleteSkillType</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@ViewBag.STName for @ViewBag.Player.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.PSkillTypeID)
+        @Html.HiddenFor(model => model.PlayerID)
+        
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to Skill Type List", "SkillTypesIndex", new { ID = Model.PlayerID })
+        </div>
+    }
+</div>
