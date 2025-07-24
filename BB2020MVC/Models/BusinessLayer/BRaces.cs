@@ -256,5 +256,41 @@ namespace BB2020MVC.Models.BusinessLayer
 
             return new RaceVM(_RacesRepos.GetSingle(RaceID), PlayerList, _RulesSpecialRules_Repos, _RaceSpecRepos);
         }
+        public IList<SelectListItem> CreateSelectListRaces(int SelectValue = -1)
+        {
+            IList<SelectListItem> RaceSelect = new List<SelectListItem>();
+            foreach (var Race in this.GetAllRaces())
+            {
+                RaceSelect.Add(
+                    new SelectListItem()
+                    {
+                        Value = Race.RaceID.ToString(),
+                        Text = Race.Name,
+                        Selected = (SelectValue == Race.RaceID)
+                    }
+                );
+            }
+            RaceSelect.Add
+                (
+                    new SelectListItem()
+                    {
+                        Value = "-1",
+                        Text = "None",
+                        Selected = (SelectValue == -1)
+                    }
+                );
+            return RaceSelect;
+        }
+        public SelectList SLRace()
+        {
+            IList<SelectListItem> List = new List<SelectListItem>();
+            SelectListItem Item;
+            foreach (var item in GetAllRaces())
+            {
+                Item = new SelectListItem() { Text = item.Name, Value = item.RaceID.ToString() };
+                List.Add(Item);
+            }
+            return new SelectList(List, "Value", "Text");
+        }
     }
 }

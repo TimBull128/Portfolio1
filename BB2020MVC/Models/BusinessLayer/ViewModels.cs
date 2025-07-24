@@ -7,6 +7,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace BB2020MVC.Models.BusinessLayer
 {
@@ -82,5 +83,84 @@ namespace BB2020MVC.Models.BusinessLayer
         public int SkillTypeID;
         public string SkillTypeName;
         public string Description;
+    }
+    public class NewRosterVM
+    {
+
+        public int RaceID { get; set; } = 0;
+        public SelectList SLRace;
+
+
+    }
+    //TODO: Review and update
+    public class ViewRosterVM
+    {
+        public User_Rosters Roster;
+        public IList<User_Rosters_Players> RosteredPlayers;
+        public BaseRaceStruct BaseRace;
+    }
+    public class RaceNames
+    {
+        public int ID;
+        public string Name;
+    }
+    public class RosterNames
+    {
+        public int ID, RaceID;
+        public string Name, RaceName;
+
+    }
+    public class SkillTypeSelects
+    {
+        public string Type;
+        public IList<SelectListItem> SelectList;
+    }
+    public class PlayerMissing
+    {
+        public int PlayerID;
+        public bool MNG;
+    }
+    public class EditRaceSRVM
+    {
+        public Races_SpecialRules RSR1 { get; set; }
+        public Races_SpecialRules RSR2 { get; set; }
+        public Races_SpecialRules RSR3 { get; set; }
+        public Race Race { get; set; }
+        public SelectList Select { get; set; }
+    }
+    public class SkillIndexVM
+    {
+        public IList<Rules_Skills_Types> SkillTypes;
+        public IList<Rules_Skills_List> SkillList;
+        public IList<Races_Players_Skills> PSkillList;
+        public Race Race;
+        public Races_Players Player;
+
+    }
+    public class SkillAlterVM
+    {
+        public Race Race { get; set; }
+        public Races_Players Player { get; set; }
+        public Races_Players_Skills PlayerSkill { get; set; }
+        public Rules_Skills_List RuleSkill { get; set; }
+    }
+
+    public class FSkillsVM
+    {
+        public IList<Rules_Skills_FSkills> FSkillList;
+        public IList<Rules_Skills_List> SkillList;
+        public Rules_Skills_List Skill;
+    }
+    public class AddFSkillVM
+    {
+        public Rules_Skills_List Skill { get; set; }
+        public Rules_Skills_FSkills FSkill { get; set; }
+        public SelectList List;
+    }
+    public class DeleteFSkillVM
+    {
+        public Rules_Skills_List Skill { get; set; }
+        public Rules_Skills_List FSkill;
+        public Rules_Skills_FSkills FSkillDetail { get; set; }
     }
 }
