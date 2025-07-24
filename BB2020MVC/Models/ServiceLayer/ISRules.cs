@@ -9,9 +9,15 @@ using System.Threading.Tasks;
 namespace BB2020MVC.Models.ServiceLayer
 {
     //Interfaces
-    public interface ISInjuryTypes : IServiceLayer_Base<Rules_InjuryTypes> { }
-    public interface ISLevelTypes : IServiceLayer_Base<Rules_LvlType> { }
-    public interface ISForbiddenSkills : IServiceLayer_Base<Rules_Skills_FSkills> { }
+    public interface ISInjuryTypes : IServiceLayer_Base<Rules_InjuryTypes>
+    { 
+    }
+    public interface ISLevelTypes : IServiceLayer_Base<Rules_LvlType> 
+    {
+    }
+    public interface ISForbiddenSkills : IServiceLayer_Base<Rules_Skills_FSkills> 
+    { 
+    }
     public interface ISSkills : IServiceLayer_Base<Rules_Skills_List> {
         IList<Rules_Skills_List> All(int SkillTypeID = 0);
     }
