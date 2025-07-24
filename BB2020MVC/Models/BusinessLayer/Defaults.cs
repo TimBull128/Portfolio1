@@ -1,5 +1,4 @@
-﻿using BB2020MVC.Models.DataLayer.Races;
-using BB2020MVC.Models.ServiceLayer;
+﻿using BB2020MVC.Models.ServiceLayer;
 using Microsoft.Ajax.Utilities;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 using System.Xml.Linq;
 
 namespace BB2020MVC.Models.BusinessLayer
