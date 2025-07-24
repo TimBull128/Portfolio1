@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BB2020MVC.Models.BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,47 +8,13 @@ using System.Web.Mvc;
 namespace BB2020MVC.Models
 {
     //Data setups - all are different from Data model
-    
-    /// <summary>
-    /// Structure for Races
-    /// ID = Primary key
-    /// Name = Name of the Race
-    /// Apoth = is Apothacary available
-    /// ReRollCost = Cost of Rerolls
-    /// Special Rules = What special rules apply - max = 3 - if null - the special rules is for multiple "Favoured of" 
-    
-    /// </summary>
-    public class BaseRaceStruct
-    {
-        public int ID, RerollCost, Tier;
-        public string Name;
-        public bool Apoth;
-        public IList<Rules_SpecialRules> SpecialRules;
-        public IList<BaseTeamStruct> Team;
-
-
-    }
-    public class CustomSkillType
-    {
-        public int ID, SkillTypeID;
-        public string SkillTypeName;
-    }
-
 
     public class RaceNames
     {
         public int ID;
         public string Name;
     }
-    public class BaseTeamStruct
-    {
-        public int ID, MA, ST, AG, AV, Cost, MaxQTY, RaceID;
-        public string Name;
-        public int PA;
-        public IList<Races_Players_Skills> PlayerSkills;
-        public IList<CustomSkillType> SingleSkillTypes;
-        public IList<CustomSkillType> DoubleSkillTypes;
-    }
+    
 
 
 

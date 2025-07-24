@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,23 +10,11 @@ namespace BB2020MVC.Models
 {
     public interface IBaseRepos
     {
-
-        IList<Races_Players> GetAllRacePlayers();
-        IList<Rules_LvlType> GetAllLevelTypes();
         IList<RaceNames> GetRaceNames();
-        IList<Race> GetAllRaces();
-        IList<Rules_Skills_List> GetAllSkills();
-        Rules_Skills_List GetSkill(int ID);
-        IList<Rules_Skills_Types> GetAllRulesSkillTypes();
-        IList<Rules_SpecialRules> GetAllSpecialRules();
-        Races_Players GetPlayerBase(int ID);
-        Rules_LvlType GetLevelType(int ID);
-        Rules_Skills_Types GetSkillType(int ID);
         IList<SelectListItem> CreateSelectListSkillTypes();
         IList<SelectListItem> CreateSelectListSkills(int SelectedValue = -1);
         IList<SelectListItem> CreateSelectListLevelTypes(int SelectedValue = -1);
         IList<Races_Players_SkillTypes> GetPlayerSkillTypes(int ID);
-        Race GetRaceBase(int ID);
         IList<Races_SpecialRules> GetSpecialRulesByRaceID(int RaceID);
         BaseRaceStruct GetRace(int ID);
 
@@ -41,28 +30,6 @@ namespace BB2020MVC.Models
         Races_Players_Skills GetPlayerSkillBase(int ID);
         Races_Players_SkillTypes GetPlayerSkillTypeBase(int ID);
         Races_SpecialRules GetSpecialRulesBase(int ID);
-
-
-
-
-        IList<Races_Players_Skills> GetAllPlayerSkills();
-        IList<Races_Players_SkillTypes> GetAllPlayerSkillTypes();
-
-
-        void AddRace(Race NewRace);
-        void AddPlayer(Races_Players Player);
-        void AddPlayerSkill(Races_Players_Skills Skill);
-        void AddPlayerSkillType(Races_Players_SkillTypes SkillType);
-
-
-        void EditRace(Race RaceEdit);
-        void EditPlayer(Races_Players Player);
-        void EditPlayerSkillType(Races_Players_SkillTypes SkillType);
-
-        void DeleteRace(int RaceID);
-        void DeletePlayerSkill(int SkillID);
-        void DelPlayer(int PlayerID);
-        void DelPlayerSkillType(int SkillTypeID);
 
         SelectList SelectListMA();
         SelectList SelectListST();
