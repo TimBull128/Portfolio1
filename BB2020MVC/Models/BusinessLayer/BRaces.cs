@@ -41,7 +41,6 @@ namespace BB2020MVC.Models.BusinessLayer
         private readonly ISSpecialRules _RulesSpecialRules_Repos;
         private readonly IDefaults _Defaults_Repos;
         private readonly ISSkillsTypes _SkillTypes_Repos;
-        
         public BusinessRace() : this(new ServiceLayer.Races(), 
             new RaceSpecialRules(), 
             new ServiceLayer.PlayerSkills(), 
@@ -74,7 +73,7 @@ namespace BB2020MVC.Models.BusinessLayer
 
         public IList<Race> GetRacesBySpecialRule(int SRID)
         {
-            return (from Races in _RacesRepos.All()
+            return (from Races in _RacesRepos.Read()
                     from Races_SpecialRules in _RaceSpecRepos.All(SRID)
                     where Races.RaceID == Races_SpecialRules.RaceID
                     select Races).ToList();
@@ -99,7 +98,7 @@ namespace BB2020MVC.Models.BusinessLayer
         {
             IList<SelectListItem> SelectList = new List<SelectListItem>();
 
-            foreach (var item in _RulesSpecialRules_Repos.All())
+            foreach (var item in _RulesSpecialRules_Repos.Read())
             {
                 SelectList.Add(new SelectListItem { Value = item.SRID.ToString(), Text = item.Name });
             }
@@ -128,28 +127,15 @@ namespace BB2020MVC.Models.BusinessLayer
         }
         public void DeleteRace(int RaceID)
         {
-            foreach (var PQ in _RacesPlayers_Repos.All(RaceID))
-            {
-                this.DelPlayer(PQ.PlayerID);
-            }
-            ;
-            foreach (var SQ in _RaceSpecRepos.All(RaceID))
-            {
-                _RaceSpecRepos.Delete(SQ.RSRID);
-            }
-            _RacesRepos.Delete(RaceID);
+            _RacesPlayers_Repos.DeleteMulti(_RacesPlayers_Repos.All(RaceID));
+            _RaceSpecRepos.DeleteMulti(_RaceSpecRepos.All(RaceID));
+            _RacesRepos.Delete(_RacesRepos.GetSingle(RaceID));
         }
         public void DelPlayer(int PlayerID)
         {
-            foreach(var item in _RacesPlayerSkills_Repos.All(PlayerID))
-            {
-                _RacesPlayerSkills_Repos.Delete(item.PSkillID);
-            }
-            foreach(var item in _RacesPlayerSkillTypes_Repos.All(PlayerID))
-            {
-                _RacesPlayerSkillTypes_Repos.Delete(item.PSkillTypeID);
-            }
-            _RacesPlayers_Repos.Delete(PlayerID);
+            _RacesPlayerSkills_Repos.DeleteMulti(_RacesPlayerSkills_Repos.All(PlayerID));
+            _RacesPlayerSkillTypes_Repos.DeleteMulti(_RacesPlayerSkillTypes_Repos.All(PlayerID));
+            _RacesPlayers_Repos.Delete(_RacesPlayers_Repos.GetSingle(PlayerID));
         }
         public SelectList SelectListMA()
         {
