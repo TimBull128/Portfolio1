@@ -1,7 +1,55 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\businesslayer\\defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\businesslayer\\defaults.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|c:\\users\\timbu\\source\\repos\\timbull128\\portfolio1\\bb2020mvc\\models\\businesslayer\\businessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\businesslayer\\businessrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|c:\\users\\timbu\\source\\repos\\timbull128\\portfolio1\\bb2020mvc\\models\\businesslayer\\businessraces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\businesslayer\\businessraces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\datalayer\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\datalayer\\datalayer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EA45B9EE-689B-47C2-A963-3BF316F51C05}|..\\MockDatabase\\MockDatabase.csproj|c:\\users\\timbu\\source\\repos\\timbull128\\portfolio1\\mockdatabase\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\businesslayer\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\businesslayer\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\servicelayer\\isrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\servicelayer\\isrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\notused.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:notused.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\businesslayer\\businessrosters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\businesslayer\\businessrosters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\servicelayer\\isrosters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\servicelayer\\isrosters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\servicelayer\\israces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\servicelayer\\israces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\models\\datalayer\\bb2020.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{CB1B2C91-3B97-48BE-9611-DF3E721132C0}|BB2020MVC.csproj|solutionrelative:models\\datalayer\\bb2020.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +57,154 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\MockDatabase\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "..\\MockDatabase\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\MockDatabase\\UnitTest1.cs",
+              "RelativeToolTip": "..\\MockDatabase\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T10:30:59.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ISRosters.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRosters.cs",
+              "RelativeDocumentMoniker": "Models\\ServiceLayer\\ISRosters.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRosters.cs",
+              "RelativeToolTip": "Models\\ServiceLayer\\ISRosters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T02:21:20.411Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Defaults.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\Defaults.cs",
+              "RelativeDocumentMoniker": "Models\\BusinessLayer\\Defaults.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\Defaults.cs",
+              "RelativeToolTip": "Models\\BusinessLayer\\Defaults.cs",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAqwIsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T01:17:07.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ISRules.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRules.cs",
+              "RelativeDocumentMoniker": "Models\\ServiceLayer\\ISRules.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRules.cs",
+              "RelativeToolTip": "Models\\ServiceLayer\\ISRules.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T08:28:51.274Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BusinessRosters.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRosters.cs",
+              "RelativeDocumentMoniker": "Models\\BusinessLayer\\BusinessRosters.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRosters.cs",
+              "RelativeToolTip": "Models\\BusinessLayer\\BusinessRosters.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwBoAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T12:44:45.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BusinessRules.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRules.cs",
+              "RelativeDocumentMoniker": "Models\\BusinessLayer\\BusinessRules.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRules.cs",
+              "RelativeToolTip": "Models\\BusinessLayer\\BusinessRules.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T12:44:22.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataLayer.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\DataLayer\\DataLayer.cs",
+              "RelativeDocumentMoniker": "Models\\DataLayer\\DataLayer.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\DataLayer\\DataLayer.cs",
+              "RelativeToolTip": "Models\\DataLayer\\DataLayer.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwC4AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T07:41:45.65Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ViewModels.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\ViewModels.cs",
+              "RelativeDocumentMoniker": "Models\\BusinessLayer\\ViewModels.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\ViewModels.cs",
+              "RelativeToolTip": "Models\\BusinessLayer\\ViewModels.cs",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwF4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T01:35:53.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BusinessRaces.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRaces.cs",
+              "RelativeDocumentMoniker": "Models\\BusinessLayer\\BusinessRaces.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\BusinessLayer\\BusinessRaces.cs",
+              "RelativeToolTip": "Models\\BusinessLayer\\BusinessRaces.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-22T00:28:44.395Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NotUsed.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\NotUsed.cs",
+              "RelativeDocumentMoniker": "NotUsed.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\NotUsed.cs",
+              "RelativeToolTip": "NotUsed.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T09:23:47.57Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ISRaces.cs",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRaces.cs",
+              "RelativeDocumentMoniker": "Models\\ServiceLayer\\ISRaces.cs",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\ServiceLayer\\ISRaces.cs",
+              "RelativeToolTip": "Models\\ServiceLayer\\ISRaces.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-21T13:26:56.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "BB2020.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\DataLayer\\BB2020.edmx",
+              "RelativeDocumentMoniker": "Models\\DataLayer\\BB2020.edmx",
+              "ToolTip": "C:\\Users\\TimBu\\source\\repos\\TimBull128\\Portfolio1\\BB2020MVC\\Models\\DataLayer\\BB2020.edmx [Diagram1]",
+              "RelativeToolTip": "Models\\DataLayer\\BB2020.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2025-07-21T07:41:29.396Z"
             }
           ]
         }

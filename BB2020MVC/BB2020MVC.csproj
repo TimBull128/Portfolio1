@@ -161,10 +161,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BusinessLayer\BRaces.cs" />
-    <Compile Include="Models\BusinessLayer\BBase.cs" />
-    <Compile Include="Models\BusinessLayer\BRules.cs" />
-    <Compile Include="Models\BusinessLayer\BRosters.cs" />
+    <Compile Include="Models\BusinessLayer\BusinessRaces.cs" />
+    <Compile Include="Models\BusinessLayer\BusinessRules.cs" />
+    <Compile Include="Models\BusinessLayer\BusinessRosters.cs" />
     <Compile Include="Models\BusinessLayer\ViewModels.cs" />
     <Compile Include="Models\BusinessLayer\Defaults.cs" />
     <Compile Include="Models\DataLayer\BB2020.Context.cs">
@@ -182,10 +181,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Models\DataLayer\MRosters.cs" />
-    <Compile Include="Models\DataLayer\MRules.cs" />
-    <Compile Include="Models\DataLayer\MRaces.cs" />
-    <Compile Include="Models\DataLayer\IBase.cs" />
+    <Compile Include="Models\DataLayer\DataLayer.cs" />
     <Compile Include="Models\DataLayer\Race.cs">
       <DependentUpon>BB2020.tt</DependentUpon>
     </Compile>
@@ -234,17 +230,9 @@
     <Compile Include="Models\DataLayer\User_Rosters_Skills.cs">
       <DependentUpon>BB2020.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelBaseRepos.cs" />
-    <Compile Include="Models\ModelRules.cs" />
-    <Compile Include="Models\ModelRosters.cs" />
-    <Compile Include="Models\RostersVM.cs" />
-    <Compile Include="Models\ServiceLayer\ISBase.cs" />
-    <Compile Include="Models\ServiceLayer\ISHelpers.cs" />
     <Compile Include="Models\ServiceLayer\ISRaces.cs" />
     <Compile Include="Models\ServiceLayer\ISRosters.cs" />
     <Compile Include="Models\ServiceLayer\ISRules.cs" />
-    <Compile Include="Models\ServiceLevel.cs" />
-    <Compile Include="Models\DataStructures.cs" />
     <Compile Include="NotUsed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -279,8 +267,6 @@
       <DependentUpon>BB2020.edmx</DependentUpon>
       <LastGenOutput>BB2020.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\DataLayer\BB2020.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BB2020.Designer.cs</LastGenOutput>
