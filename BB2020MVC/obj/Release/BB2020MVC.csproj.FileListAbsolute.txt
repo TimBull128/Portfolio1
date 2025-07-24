@@ -87,3 +87,7 @@ C:\Users\TimBu\source\repos\BB2020MVC\obj\Release\BB2020MVC.csproj.CoreCompileIn
 C:\Users\TimBu\source\repos\BB2020MVC\obj\Release\BB2020MVC.csproj.CopyComplete
 C:\Users\TimBu\source\repos\BB2020MVC\obj\Release\BB2020MVC.dll
 C:\Users\TimBu\source\repos\BB2020MVC\obj\Release\BB2020MVC.pdb
+C:\Users\TimBu\source\repos\TimBull128\Portfolio1\BB2020MVC\obj\Release\BB2020MVC.csproj.AssemblyReference.cache
+C:\Users\TimBu\source\repos\TimBull128\Portfolio1\BB2020MVC\obj\Release\BB2020MVC.csproj.CoreCompileInputs.cache
+C:\Users\TimBu\source\repos\TimBull128\Portfolio1\BB2020MVC\obj\Release\BB2020MVC.dll
+C:\Users\TimBu\source\repos\TimBull128\Portfolio1\BB2020MVC\obj\Release\BB2020MVC.pdb
