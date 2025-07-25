@@ -30,14 +30,26 @@ namespace BB2020MVC.Models.ServiceLayer
     public class InjuryTypes : DataLayer<Rules_InjuryTypes>, ISInjuryTypes
     {
         public InjuryTypes() => SetTable(DataContext().Rules_InjuryTypes);
+        public IList<Rules_InjuryTypes> All()
+        {
+            return Read();
+        }
     }
     public class LevelTypes : DataLayer<Rules_LvlType>, ISLevelTypes
     {
         public LevelTypes() => SetTable(DataContext().Rules_LvlType);
+        public IList<Rules_LvlType> All()
+        {
+            return Read();
+        }
     }
     public class ForbiddenSkills : DataLayer<Rules_Skills_FSkills>, ISForbiddenSkills
     {
         public ForbiddenSkills() => SetTable(DataContext().Rules_Skills_FSkills);
+        public IList<Rules_Skills_FSkills> All()
+        {
+            return Read();
+        }
     }
     public class Skills : DataLayer<Rules_Skills_List>, ISSkills
     {
@@ -53,9 +65,17 @@ namespace BB2020MVC.Models.ServiceLayer
     public class SkillTypes : DataLayer<Rules_Skills_Types>, ISSkillsTypes
     {
         public SkillTypes() => SetTable(DataContext().Rules_Skills_Types);
+        public IList<Rules_Skills_Types> All()
+        {
+            return Read();
+        }
     }
     public class SpecialRules : DataLayer<Rules_SpecialRules>, ISSpecialRules
     {
         public SpecialRules() => SetTable(DataContext().Rules_SpecialRules);
+        public IList<Rules_SpecialRules> All()
+        {
+            return Read();
+        }
     }
 }

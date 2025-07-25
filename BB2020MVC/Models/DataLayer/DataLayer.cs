@@ -12,7 +12,6 @@ namespace BB2020MVC.Models.DataLayer
     //This interface determines the base setup for the Data Layer
     public interface IDataLayer<ReturnType> where ReturnType : class
     {
-        IList<ReturnType> Read();
         ReturnType Create(ReturnType entry);
         IList<ReturnType> CreateMulti(IList<ReturnType> list);
         ReturnType Update(ReturnType entry);
