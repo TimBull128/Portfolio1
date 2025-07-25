@@ -161,76 +161,90 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BB2020.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Compile Include="Models\BusinessLayer\BRaces.cs" />
+    <Compile Include="Models\BusinessLayer\BBase.cs" />
+    <Compile Include="Models\BusinessLayer\BRules.cs" />
+    <Compile Include="Models\BusinessLayer\BRosters.cs" />
+    <Compile Include="Models\BusinessLayer\ViewModels.cs" />
+    <Compile Include="Models\BusinessLayer\Defaults.cs" />
+    <Compile Include="Models\DataLayer\BB2020.Context.cs">
       <DependentUpon>BB2020.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BB2020.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\DataLayer\BB2020.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\DataLayer\BB2020.Designer.cs">
+      <DependentUpon>BB2020.edmx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\DataLayer\MRosters.cs" />
+    <Compile Include="Models\DataLayer\MRules.cs" />
+    <Compile Include="Models\DataLayer\MRaces.cs" />
+    <Compile Include="Models\DataLayer\IBase.cs" />
+    <Compile Include="Models\DataLayer\Race.cs">
       <DependentUpon>BB2020.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\BB2020.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BB2020.edmx</DependentUpon>
+    <Compile Include="Models\DataLayer\Races_Players.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Races_Players_Skills.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Races_Players_SkillTypes.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Races_SpecialRules.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_InjuryTypes.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_LvlType.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_Skills_FSkills.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_Skills_List.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_Skills_Types.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\Rules_SpecialRules.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\User_Rosters.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\User_Rosters_Injury.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\User_Rosters_LvlTypes.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\User_Rosters_Players.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataLayer\User_Rosters_Skills.cs">
+      <DependentUpon>BB2020.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModelBaseRepos.cs" />
     <Compile Include="Models\ModelRules.cs" />
     <Compile Include="Models\ModelRosters.cs" />
-    <Compile Include="Models\Race.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Races_Players.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Races_Players_Skills.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Races_Players_SkillTypes.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Races_SpecialRules.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\RostersVM.cs" />
-    <Compile Include="Models\Rules_InjuryTypes.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rules_LvlType.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rules_Skills_FSkills.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rules_Skills_List.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rules_Skills_Types.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Rules_SpecialRules.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\ServiceLayer\ISBase.cs" />
+    <Compile Include="Models\ServiceLayer\ISHelpers.cs" />
+    <Compile Include="Models\ServiceLayer\ISRaces.cs" />
+    <Compile Include="Models\ServiceLayer\ISRosters.cs" />
+    <Compile Include="Models\ServiceLayer\ISRules.cs" />
     <Compile Include="Models\ServiceLevel.cs" />
-    <Compile Include="Models\ModelRaces.cs" />
     <Compile Include="Models\DataStructures.cs" />
-    <Compile Include="Models\User_Rosters.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User_Rosters_Injury.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User_Rosters_LvlTypes.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User_Rosters_Players.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User_Rosters_Skills.cs">
-      <DependentUpon>BB2020.tt</DependentUpon>
-    </Compile>
     <Compile Include="NotUsed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -255,21 +269,23 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\BB2020.Context.tt">
+    <Content Include="Models\DataLayer\BB2020.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BB2020.edmx</DependentUpon>
       <LastGenOutput>BB2020.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\BB2020.tt">
+    <Content Include="Models\DataLayer\BB2020.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BB2020.edmx</DependentUpon>
       <LastGenOutput>BB2020.cs</LastGenOutput>
     </Content>
-    <EntityDeploy Include="Models\BB2020.edmx">
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\DataLayer\BB2020.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BB2020.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\BB2020.edmx.diagram">
+    <Content Include="Models\DataLayer\BB2020.edmx.diagram">
       <DependentUpon>BB2020.edmx</DependentUpon>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -341,6 +357,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\WebServices\" />
     <Folder Include="Views\Splash\" />
   </ItemGroup>
   <ItemGroup>
