@@ -9,37 +9,37 @@ using System.Threading.Tasks;
 namespace BB2020MVC.Models.ServiceLayer
 {
     //Interfaces
-    public interface ISInjuryTypes : IServiceLayer_Base<Rules_InjuryTypes>
+    public interface ISInjuryTypes : IDataLayer<Rules_InjuryTypes>
     { 
     }
-    public interface ISLevelTypes : IServiceLayer_Base<Rules_LvlType> 
+    public interface ISLevelTypes : IDataLayer<Rules_LvlType> 
     {
     }
-    public interface ISForbiddenSkills : IServiceLayer_Base<Rules_Skills_FSkills> 
+    public interface ISForbiddenSkills : IDataLayer<Rules_Skills_FSkills> 
     { 
     }
-    public interface ISSkills : IServiceLayer_Base<Rules_Skills_List> {
+    public interface ISSkills : IDataLayer<Rules_Skills_List> {
         IList<Rules_Skills_List> All(int SkillTypeID = 0);
     }
-    public interface ISSkillsTypes : IServiceLayer_Base<Rules_Skills_Types> {
+    public interface ISSkillsTypes : IDataLayer<Rules_Skills_Types> {
     }
-    public interface ISSpecialRules : IServiceLayer_Base<Rules_SpecialRules> {
+    public interface ISSpecialRules : IDataLayer<Rules_SpecialRules> {
     }
 
     //Classes
-    public class InjuryTypes : ServiceLayer_Base<Rules_InjuryTypes>, ISInjuryTypes
+    public class InjuryTypes : DataLayer<Rules_InjuryTypes>, ISInjuryTypes
     {
         public InjuryTypes() => SetTable(DataContext().Rules_InjuryTypes);
     }
-    public class LevelTypes : ServiceLayer_Base<Rules_LvlType>, ISLevelTypes
+    public class LevelTypes : DataLayer<Rules_LvlType>, ISLevelTypes
     {
         public LevelTypes() => SetTable(DataContext().Rules_LvlType);
     }
-    public class ForbiddenSkills : ServiceLayer_Base<Rules_Skills_FSkills>, ISForbiddenSkills
+    public class ForbiddenSkills : DataLayer<Rules_Skills_FSkills>, ISForbiddenSkills
     {
         public ForbiddenSkills() => SetTable(DataContext().Rules_Skills_FSkills);
     }
-    public class Skills : ServiceLayer_Base<Rules_Skills_List>, ISSkills
+    public class Skills : DataLayer<Rules_Skills_List>, ISSkills
     {
         public Skills() => SetTable(DataContext().Rules_Skills_List);
         
@@ -50,11 +50,11 @@ namespace BB2020MVC.Models.ServiceLayer
                     select item).ToList();
         }
     }
-    public class SkillTypes : ServiceLayer_Base<Rules_Skills_Types>, ISSkillsTypes
+    public class SkillTypes : DataLayer<Rules_Skills_Types>, ISSkillsTypes
     {
         public SkillTypes() => SetTable(DataContext().Rules_Skills_Types);
     }
-    public class SpecialRules : ServiceLayer_Base<Rules_SpecialRules>, ISSpecialRules
+    public class SpecialRules : DataLayer<Rules_SpecialRules>, ISSpecialRules
     {
         public SpecialRules() => SetTable(DataContext().Rules_SpecialRules);
     }
